@@ -164,10 +164,12 @@ header.solid{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-fi
 /* day story */
 .story{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px}
 .story-media{--fh:min(440px,calc((100svh - var(--hdr) - 22px) / 1.7),calc(((min(100vw,1200px) - 96px) * .565 + 60px) / 1.7));position:sticky;top:calc(var(--hdr) + (100svh - var(--hdr) - var(--fh)) / 2);height:var(--fh);display:flex;justify-content:center;align-items:center;z-index:1}
-.frame{position:relative;height:var(--fh);aspect-ratio:3/4;max-width:100%;border-radius:28px;overflow:hidden;background:transparent;box-shadow:0 50px 90px -40px var(--shade),0 0 0 1px var(--line)}
+.frame{position:relative;flex:none;width:calc(var(--fh) * 1.7 * .79);aspect-ratio:1;border-radius:50%;overflow:hidden;background:transparent;-webkit-mask-image:radial-gradient(circle closest-side,#000 58%,rgba(0,0,0,.55) 78%,rgba(0,0,0,.15) 92%,transparent 100%);mask-image:radial-gradient(circle closest-side,#000 58%,rgba(0,0,0,.55) 78%,rgba(0,0,0,.15) 92%,transparent 100%)}
 .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1s var(--ease),transform 1.6s var(--ease)}
-.frame img.on{opacity:.88;transform:none}
-.frame img.whole{object-fit:contain;background:#ece0cc}
+.frame img.on{opacity:.95;transform:none}
+.frame img.whole{object-fit:contain;background:transparent;transform:scale(.74)}
+.frame img.whole.on{transform:scale(.74)}
+.frame .dots{display:none} /* the clock already shows where you are in the day */
 /* giant background clock for the day story */
 .story-media{isolation:isolate}
 .story-media>.clock{position:absolute;left:50%;top:50%;width:calc(var(--fh) * 1.7);height:auto;transform:translate(-50%,-50%);z-index:-1;overflow:visible;pointer-events:none}
