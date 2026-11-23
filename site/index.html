@@ -14,7 +14,7 @@
 :root{
   --bg:#f4ede1; --card:#fbf7f0; --ink:#1f1812; --muted:#6d5e4e; --line:rgba(31,24,18,.12);
   --accent:#b46f28; --btn:#1f1812; --btn-ink:#f4ede1; --shade:rgba(60,40,20,.35);
-  --ease:cubic-bezier(.22,1,.36,1); --r:22px; --bar:26px; --hdr:calc(68px + var(--bar)); --pad:clamp(40px,8svh,88px);
+  --ease:cubic-bezier(.22,1,.36,1); --r:22px; --bar:26px; --navh:68px; --hdr:calc(var(--navh) + var(--bar)); --pad:clamp(40px,8svh,88px);
 }
 body.night{
   --bg:#15100c; --card:#201913; --ink:#f2e8d7; --muted:#b2a089; --line:rgba(242,232,215,.13);
@@ -77,7 +77,7 @@ header.solid{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-fi
 .demo-bar a:hover{color:#ffd08a;text-decoration-color:currentColor}
 @media(max-width:480px){.demo-bar{font-size:.66rem;letter-spacing:.03em}}
 .prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(0)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:var(--navh);gap:20px}
 .brand{font-family:"Instrument Serif",serif;font-size:1.5rem;text-decoration:none;white-space:nowrap}
 .brand em{color:var(--accent)}
 .nav ul{display:flex;gap:1.9rem;list-style:none;font-size:.88rem}
@@ -210,7 +210,6 @@ header.solid{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-fi
 @media(max-width:900px){
   .story{grid-template-columns:1fr;gap:0}
   .story-media{--fh:min(30svh,54vw);top:var(--hdr);height:calc(var(--fh) * 1.78);z-index:2;margin:0 -20px;padding:0 20px;background:var(--bg);transition:background-color 1s var(--ease)}
-  .step{min-height:56vh}
 }
 
 
@@ -508,6 +507,49 @@ dialog[open] .lb img{animation:lbin .5s var(--ease)}
 }
 @media(max-width:600px) and (max-height:760px){.hero .stats{display:none}}
 @media(min-width:901px) and (max-height:740px){.hero .book-msg{display:none}}
+
+/* ---------- mobile polish ---------- */
+.qa-hint{display:none;font-size:.78rem;color:var(--muted);margin:-8px 0 12px}
+.qa-hint b{color:var(--accent);font-weight:500}
+body{-webkit-tap-highlight-color:transparent}
+.menu-btn{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:color-mix(in srgb,var(--card) 70%,transparent);cursor:pointer;flex:none;place-content:center;gap:5px;transition:background-color 1s var(--ease)}
+.menu-btn span{display:block;width:16px;height:1.6px;background:var(--ink);border-radius:2px;transition:transform .4s var(--ease)}
+.menu-btn[aria-expanded=true] span:first-child{transform:translateY(3.3px) rotate(45deg)}
+.menu-btn[aria-expanded=true] span:last-child{transform:translateY(-3.3px) rotate(-45deg)}
+.mnav{position:fixed;inset:var(--hdr) 0 0;z-index:49;background:color-mix(in srgb,var(--bg) 96%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;flex-direction:column;justify-content:space-between;padding:28px 20px calc(24px + env(safe-area-inset-bottom));animation:fade .35s var(--ease)}
+.mnav[hidden]{display:none}
+.mnav ol{list-style:none}
+.mnav li{border-bottom:1px solid var(--line);animation:mnin .6s var(--ease) backwards;animation-delay:calc(var(--i) * 60ms)}
+@keyframes fade{from{opacity:0}}
+@keyframes mnin{from{opacity:0;transform:translateY(14px)}}
+.mnav li a{display:flex;align-items:baseline;gap:14px;padding:14px 0;text-decoration:none;font-family:"Instrument Serif",serif;font-size:clamp(1.9rem,8vw,2.6rem);line-height:1.1}
+.mnav li span{font-family:Geist,sans-serif;font-size:.72rem;letter-spacing:.14em;color:var(--accent)}
+.mnav-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mnav-foot p{width:100%;color:var(--muted);font-size:.82rem;margin-top:6px}
+body.menu-open{overflow:hidden}
+@media(max-width:900px){.menu-btn{display:grid}.nav>.btn{margin-left:auto}}
+@media(max-width:600px){
+  :root{--navh:58px}
+  .brand{font-size:1.35rem}
+  .nav{gap:10px}
+  .nav>.btn{padding:.55rem .85rem;font-size:.8rem}
+  /* iOS zooms the page when a focused field is under 16px */
+  .book input,.book select,.cb input,.bot-in input{font-size:16px}
+  .book{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .book label{padding:.45rem .6rem;min-width:0}
+  .cb{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  /* hero: let the photos breathe */
+  .hero-bg::after{background:linear-gradient(to bottom,rgba(14,10,7,.62),rgba(14,10,7,.42) 32%,rgba(14,10,7,.55) 60%,rgba(14,10,7,.86))}
+  .hero h1,.hero .lead{text-shadow:0 2px 18px rgba(0,0,0,.45)}
+  /* day story: text starts right under the pinned clock and fades as it slides beneath it */
+  .steps{padding:14px 0 26vh}
+  .step{min-height:calc(100svh - var(--hdr) - var(--fh) * 1.78 - 8px);justify-content:flex-start;padding-top:4px}
+  .story-media::after{content:"";position:absolute;left:0;right:0;bottom:-36px;height:36px;background:linear-gradient(var(--bg),transparent);pointer-events:none;transition:background 1s var(--ease)}
+  /* faq: say it scrolls sideways */
+  .qa-hint{display:block}
+  .hero .amen svg *{stroke-dashoffset:0}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .rv,.ri,.w>span{opacity:1!important;transform:none!important;clip-path:none!important}
@@ -529,9 +571,24 @@ dialog[open] .lb img{animation:lbin .5s var(--ease)}
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <a class="btn sm" href="https://www.airbnb.co.uk/rooms/1820898712132260401" target="_blank" rel="noopener"><span class="dot-air" aria-hidden="true"></span>Book on Airbnb</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
   </div>
   <div class="prog" id="prog"></div>
 </header>
+<nav class="mnav" id="mnav" aria-label="Menu" hidden>
+  <ol>
+    <li style="--i:0"><a href="#day"><span>01</span>A day here</a></li>
+    <li style="--i:1"><a href="#amenities"><span>02</span>Amenities</a></li>
+    <li style="--i:2"><a href="#gallery"><span>03</span>Gallery</a></li>
+    <li style="--i:3"><a href="#arrive"><span>04</span>Location</a></li>
+    <li style="--i:4"><a href="#faq"><span>05</span>FAQ</a></li>
+  </ol>
+  <div class="mnav-foot">
+    <a class="btn" href="https://www.airbnb.co.uk/rooms/1820898712132260401" target="_blank" rel="noopener"><span class="dot-air" aria-hidden="true"></span>Book on Airbnb</a>
+    <a class="chip wa" href="#" data-dummy><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#2a9d5c" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></i>WhatsApp</a>
+    <p>SOHO 1034, 10th Floor, Block D&amp;E, CCC Zirakpur</p>
+  </div>
+</nav>
 
 <main id="main">
 
@@ -744,6 +801,7 @@ dialog[open] .lb img{animation:lbin .5s var(--ease)}
       <div><span class="kicker rv">Questions</span><h2 class="sp">Good to <em>know.</em></h2></div>
       <button class="btn sm rv" type="button" id="faq-ask">Still curious? Ask Niwas <span class="arr">→</span></button>
     </div>
+    <p class="qa-hint" aria-hidden="true">Swipe for more <b>→</b></p>
     <div class="qa-grid">
       <article class="qa rv"><div class="qa-top"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></i><span>01</span></div><h3>Is the whole flat ours?</h3><p>Yes. The entire private SOHO is yours: bedroom, living room, kitchen, bathroom and balcony.</p></article>
       <article class="qa rv"><div class="qa-top"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM22 20v-2a4 4 0 0 0-3-3.9M16 4.1a4 4 0 0 1 0 7.8"/></svg></i><span>02</span></div><h3>How many guests?</h3><p>Up to 4. A queen bed in the bedroom and a sofa bed in the living room.</p></article>
@@ -879,7 +937,9 @@ function setStep(i){
 }
 // on phones the photo is pinned over the top half, so read the step sitting just below it
 const narrow=matchMedia('(max-width:900px)').matches;
-const stepIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setStep(steps.indexOf(e.target))}),{rootMargin:narrow?'-66% 0px -30% 0px':'-45% 0px -45% 0px'});
+// phones: trigger line sits low in the visible strip under the pinned clock, so the active step's title stays in view
+function stepLine(){const sm=$('.story-media'),top=parseFloat(getComputedStyle(sm).top)||0,below=top+sm.offsetHeight,y=Math.round(below+(innerHeight-below)*.85);return `-${y}px 0px -${Math.max(0,innerHeight-y-1)}px 0px`}
+const stepIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setStep(steps.indexOf(e.target))}),{rootMargin:narrow?stepLine():'-45% 0px -45% 0px'});
 steps.forEach(s=>stepIO.observe(s));setStep(0);
 
 
@@ -950,6 +1010,16 @@ if(matchMedia('(pointer:fine)').matches&&!calm){
   addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;const t=e.target.closest('figure[data-i],.show img,#vid');ts=t?1:0;c.textContent=t&&t.id==='vid'?'Play':'View'},{passive:true});
   (function loop(){cx+=(x-cx)*.18;cy+=(y-cy)*.18;s+=(ts-s)*.15;c.style.transform=`translate(${cx}px,${cy}px) scale(${s.toFixed(3)})`;requestAnimationFrame(loop)})();
 }
+
+
+// ---------- mobile menu
+(()=>{const btn=$('#menu-btn'),nav=$('#mnav');
+  const set=open=>{nav.hidden=!open;btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Close menu':'Open menu');document.body.classList.toggle('menu-open',open)};
+  btn.onclick=()=>set(nav.hidden);
+  nav.addEventListener('click',e=>{if(e.target.closest('a[href^="#"]:not([data-dummy])'))set(false)});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!nav.hidden){set(false);btn.focus()}});
+  matchMedia('(min-width:901px)').addEventListener('change',e=>{if(e.matches)set(false)});
+})();
 
 // ---------- FAQ button opens the assistant
 $('#faq-ask').onclick=()=>$('#ask').click();
