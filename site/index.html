@@ -157,15 +157,15 @@ header.solid{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-fi
 @media(max-width:480px){.stats{grid-template-columns:repeat(4,1fr)}.stats div{padding:0 8px}.stats span{white-space:normal;font-size:.74rem;line-height:1.3;display:block}}
 
 /* day story */
-.story{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:56px}
-.story-media{position:sticky;top:max(96px,calc(50svh - 280px));height:min(560px,calc(100svh - 150px));display:flex;justify-content:center;z-index:1}
-.frame{position:relative;height:100%;aspect-ratio:3/4;max-width:100%;border-radius:28px;overflow:hidden;background:var(--card);box-shadow:0 50px 90px -40px var(--shade),0 0 0 1px var(--line)}
+.story{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px}
+.story-media{--fh:min(440px,calc((100svh - 90px) / 1.7),calc(((min(100vw,1200px) - 96px) * .565 + 60px) / 1.7));position:sticky;top:calc(68px + (100svh - 68px - var(--fh)) / 2);height:var(--fh);display:flex;justify-content:center;align-items:center;z-index:1}
+.frame{position:relative;height:var(--fh);aspect-ratio:3/4;max-width:100%;border-radius:28px;overflow:hidden;background:transparent;box-shadow:0 50px 90px -40px var(--shade),0 0 0 1px var(--line)}
 .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1s var(--ease),transform 1.6s var(--ease)}
-.frame img.on{opacity:1;transform:none}
+.frame img.on{opacity:.88;transform:none}
 .frame img.whole{object-fit:contain;background:#ece0cc}
 /* giant background clock for the day story */
 .story-media{isolation:isolate}
-.story-media>.clock{position:absolute;left:50%;top:50%;width:min(76svh,50vw);height:auto;transform:translate(-50%,-50%);z-index:-1;overflow:visible;pointer-events:none}
+.story-media>.clock{position:absolute;left:50%;top:50%;width:calc(var(--fh) * 1.7);height:auto;transform:translate(-50%,-50%);z-index:-1;overflow:visible;pointer-events:none}
 .story-media>.clock.hands{z-index:2}
 .clock.hands .h{stroke:#fff6e6;stroke-opacity:.95;stroke-width:1.05}
 .clock.hands .m{stroke:#e8b46a;stroke-opacity:1;stroke-width:.6}
@@ -202,8 +202,7 @@ header.solid{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-fi
 .step li{border:1px solid var(--line);border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
 @media(max-width:900px){
   .story{grid-template-columns:1fr;gap:0}
-  .story-media>.clock{width:min(118vw,64svh)}
-  .story-media{top:68px;height:52vh;z-index:2;margin:0 -20px;padding:0 20px 10px;background:var(--bg);transition:background-color 1s var(--ease)}
+  .story-media{--fh:min(30svh,54vw);top:68px;height:calc(var(--fh) * 1.78);z-index:2;margin:0 -20px;padding:0 20px;background:var(--bg);transition:background-color 1s var(--ease)}
   .step{min-height:56vh}
 }
 
