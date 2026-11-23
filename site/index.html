@@ -72,7 +72,9 @@ section{padding:var(--pad) 0;position:relative}
 header{position:fixed;inset:0 0 auto;z-index:50;transition:background-color .5s,border-color .5s;border-bottom:1px solid transparent}
 header.solid{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
 .demo-bar{height:var(--bar);display:flex;align-items:center;justify-content:center;gap:.4rem;background:#1f1812;color:rgba(242,232,215,.82);font-size:.74rem;letter-spacing:.06em;white-space:nowrap}
-.demo-bar i{font-style:normal;color:#e3aa5e}.demo-bar b{font-weight:600;color:#e3aa5e}
+.demo-bar i{font-style:normal;color:#e3aa5e}
+.demo-bar a{font-weight:600;color:#e3aa5e;text-decoration:underline;text-decoration-color:rgba(227,170,94,.4);text-underline-offset:3px;transition:color .2s,text-decoration-color .2s}
+.demo-bar a:hover{color:#ffd08a;text-decoration-color:currentColor}
 @media(max-width:480px){.demo-bar{font-size:.66rem;letter-spacing:.03em}}
 .prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(0)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
@@ -513,7 +515,7 @@ dialog[open] .lb img{animation:lbin .5s var(--ease)}
 <a class="skip" href="#main">Skip to content</a>
 
 <header id="hdr">
-  <div class="demo-bar">This is a demo site <i>·</i> Powered by <b>Gen Clover</b></div>
+  <div class="demo-bar">This is a demo site <i>·</i> Powered by <a href="https://www.genclover.com/" target="_blank" rel="noopener">Gen Clover</a></div>
   <div class="wrap nav">
     <a class="brand" href="#top">The Nap <em>Niwas</em></a>
     <ul>
