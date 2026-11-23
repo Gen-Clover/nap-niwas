@@ -150,7 +150,7 @@ header.solid{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-fi
 /* marquee */
 .marquee{border-block:1px solid var(--line);overflow:hidden;padding:5px 0;white-space:nowrap;line-height:1.2}
 .marquee div{display:inline-flex;gap:1.6rem;animation:mq 40s linear infinite;font-family:"Instrument Serif",serif;font-size:clamp(1rem,1.3vw,1.3rem)}
-.marquee span::after{content:"✳";color:var(--accent);margin-left:1.6rem;font-size:.6em;vertical-align:middle}
+.marquee span::after{content:"\2733\FE0E";font-variant-emoji:text;font-family:"Instrument Serif",Georgia,serif;color:var(--accent);margin-left:1.6rem;font-size:.6em;vertical-align:middle}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* hero stats */
@@ -506,6 +506,28 @@ dialog[open] .lb img{animation:lbin .5s var(--ease)}
   .show-cap small{display:none}
 }
 @media(max-width:600px) and (max-height:760px){.hero .stats{display:none}}
+/* phones/tablets: amenities wrap (no sideways scroller); stats hide to make room */
+@media(max-width:900px){
+  .hero .amen{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;overflow:visible;scroll-snap-type:none;padding:0 12px 0 0}
+  .hero .amen li{background:none;border:0;padding:0;border-radius:0;white-space:normal;font-size:.76rem;line-height:1.3;gap:.45rem;align-items:center}
+  .hero .amen svg{width:14px;height:14px;margin-top:0}
+  .amen-card{padding:12px 0 12px 14px}
+  .hero .stats,.slide-ui{display:none}
+}
+/* short phones (e.g. 360x740): trim hero spacing so the amenity list still fits */
+@media(max-width:600px) and (max-height:760px){
+  .hero .live{display:none}
+  .hero h1{font-size:2.2rem;margin:.2rem 0 .4rem}
+  .hero .lead{font-size:.84rem;line-height:1.45}
+  .hero-grid{gap:8px}
+  .book{margin-top:8px}
+  .hero .amen{gap:4px 10px}
+  .hero .amen li{font-size:.72rem}
+  .amen-card .kicker{margin-bottom:.3rem}
+  .hero .unavail{margin-top:6px;flex-wrap:nowrap;white-space:nowrap;font-size:.64rem;gap:.3rem}
+  .hero .unavail s{padding:.1rem .45rem}
+}
+
 @media(min-width:901px) and (max-height:740px){.hero .book-msg{display:none}}
 
 /* ---------- mobile polish ---------- */
