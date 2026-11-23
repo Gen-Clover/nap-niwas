@@ -1,0 +1,12 @@
+# client's raw files (includes a personal UPI payment QR) - never commit
+client details/
+
+# tooling
+.playwright-cli/
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/

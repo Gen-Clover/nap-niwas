@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Nap Niwas · Zirakpur</title>
+<meta name="description" content="The Nap Niwas — a private one-bedroom SOHO with a balcony on the 10th floor of CCC Zirakpur. Sleeps 4, kitchen, workspace, free parking. Book on Airbnb.">
+<meta name="theme-color" content="#f4ede1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231f1812'/%3E%3Cpath d='M40 18a16 16 0 1 0 8 26 13 13 0 1 1-8-26z' fill='%23e3aa5e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4ede1; --card:#fbf7f0; --ink:#1f1812; --muted:#6d5e4e; --line:rgba(31,24,18,.12);
+  --accent:#b46f28; --btn:#1f1812; --btn-ink:#f4ede1; --shade:rgba(60,40,20,.35);
+  --ease:cubic-bezier(.22,1,.36,1); --r:22px; --pad:clamp(40px,8svh,88px);
+}
+body.night{
+  --bg:#15100c; --card:#201913; --ink:#f2e8d7; --muted:#b2a089; --line:rgba(242,232,215,.13);
+  --accent:#e3aa5e; --btn:#f2e8d7; --btn-ink:#15100c; --shade:rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Geist,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background-color 1s var(--ease),color 1s var(--ease);overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;line-height:1;letter-spacing:-.012em}
+h2{font-size:clamp(1.9rem,min(4.6vw,6.2svh),3.7rem)}
+h1 em,h2 em,h3 em{color:var(--accent);font-style:italic}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+section{padding:var(--pad) 0;position:relative}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(18px,3.6svh,40px)}
+.kicker{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem}
+.kicker::before{content:"";width:22px;height:1px;background:currentColor}
+.lead{color:var(--muted);font-size:1.04rem;max-width:50ch;font-weight:300}
+.note{font-size:.78rem;color:var(--muted)}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;z-index:99;background:#fff;color:#000;padding:.5rem 1rem}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+
+/* buttons + chips */
+.btn{display:inline-flex;align-items:center;gap:.55rem;white-space:nowrap;border:0;cursor:pointer;font:500 .92rem Geist,sans-serif;padding:.85rem 1.3rem;border-radius:999px;background:var(--btn);color:var(--btn-ink);text-decoration:none;position:relative;overflow:hidden;isolation:isolate;transition:transform .25s var(--ease),background-color 1s var(--ease),color 1s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;background:var(--accent);transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1;border-radius:inherit}
+.btn:hover::before{transform:none}
+.btn:hover{color:#fff}
+.btn:active{transform:scale(.96)}
+.btn .arr{transition:transform .35s var(--ease)}.btn:hover .arr{transform:translateX(3px)}
+.btn.sm{padding:.6rem 1rem;font-size:.85rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{display:inline-flex;align-items:center;gap:.55rem;padding:.55rem 1rem .55rem .6rem;border-radius:999px;background:var(--card);border:1px solid var(--line);font:500 .86rem Geist;text-decoration:none;color:var(--ink);transition:transform .3s var(--ease),border-color .3s,background-color 1s var(--ease)}
+.chip i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,transparent);transition:background-color .3s}
+.chip svg{width:15px;height:15px}
+.chip:hover{transform:translateY(-2px);border-color:var(--c)}
+.chip:hover i{background:var(--c)}.chip:hover i svg *{fill:#fff;stroke:#fff}
+.chip.airbnb{--c:#e8505b}.chip.wa{--c:#2a9d5c}.chip.ig{--c:#c13584}
+
+/* split-word headline reveal */
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .06em .1em 0;margin-bottom:-.1em}
+.w>span{display:inline-block;transform:translateY(108%);transition:transform 1.1s var(--ease)}
+.sp.in .w>span{transform:none}
+/* fade-up + image wipe reveals */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.ri{clip-path:inset(0 0 100% 0 round var(--r));transition:clip-path 1.3s var(--ease)}
+.ri img{transform:scale(1.18);transition:transform 1.6s var(--ease)}
+.ri.in{clip-path:inset(0 0 0 0 round var(--r))}
+.ri.in img{transform:none}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background-color .5s,border-color .5s;border-bottom:1px solid transparent}
+header.solid{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(0)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.brand{font-family:"Instrument Serif",serif;font-size:1.5rem;text-decoration:none;white-space:nowrap}
+.brand em{color:var(--accent)}
+.nav ul{display:flex;gap:1.9rem;list-style:none;font-size:.88rem}
+.nav ul a{text-decoration:none;color:var(--muted);position:relative;transition:color .2s}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.nav ul a:hover{color:var(--ink)}.nav ul a:hover::after{transform:scaleX(1);transform-origin:left}
+.dot-air{width:8px;height:8px;border-radius:50%;background:#ff385c;box-shadow:0 0 0 3px rgba(255,56,92,.2)}
+@media(max-width:900px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding:clamp(80px,11svh,96px) 0 0;min-height:100svh;display:flex;flex-direction:column}
+.hero-grid{flex:1;align-content:center;padding-bottom:clamp(16px,3svh,40px)}
+.hero .marquee{flex:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;width:100%}
+.live{display:inline-flex;align-items:center;gap:.55rem;font-size:.82rem;color:var(--muted);padding:.4rem .85rem;border:1px solid var(--line);border-radius:999px}
+.live i{width:7px;height:7px;border-radius:50%;background:#3fb36b;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,179,107,.55)}70%,100%{box-shadow:0 0 0 9px rgba(63,179,107,0)}}
+.hero h1{font-size:clamp(2.8rem,min(8vw,11.5svh),7rem);line-height:.88;margin:1.2rem 0 1.3rem}
+.hero h1 .l{display:block}
+
+.book{margin-top:1.8rem;display:grid;grid-template-columns:1fr 1fr .62fr auto;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 0;max-width:620px;box-shadow:0 20px 44px -28px var(--shade);transition:background-color 1s var(--ease),box-shadow .3s}
+.book:focus-within{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent),0 20px 44px -28px var(--shade)}
+.book label{padding:.25rem 1.2rem;font-size:.64rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-right:1px solid var(--line)}
+.book label:nth-child(3){border:0}
+.book input,.book select{display:block;width:100%;border:0;background:transparent;font:400 .92rem Geist;color:var(--ink);margin-top:1px;outline:none;color-scheme:light dark;min-width:0}
+.book-msg{font-size:.78rem;color:var(--muted);margin:.6rem 0 0 1.2rem}
+@media(max-width:600px){.book{grid-template-columns:1fr 1fr;border-radius:20px;padding:8px;gap:6px}.book label{border:0;padding:.5rem .75rem;background:color-mix(in srgb,var(--bg) 70%,transparent);border-radius:12px}.book label:nth-child(3){grid-column:span 2}.book .btn{grid-column:span 2;justify-content:center}.book-msg{margin-left:0}}
+
+.bars{display:flex;gap:6px;width:150px;flex:none}
+.bars button{flex:1;height:3px;border:0;border-radius:3px;background:rgba(255,255,255,.35);cursor:pointer;padding:0;overflow:hidden;position:relative}
+.bars button::before{content:"";position:absolute;inset:-8px 0}
+.bars i{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:left}
+.bars .done i{transform:scaleX(1)}
+.bars .on i{animation:fill 5s linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+@keyframes capin{from{opacity:0;transform:translateY(10px)}}
+@media(max-width:900px){.hero{min-height:0;padding-top:88px}.hero-grid{grid-template-columns:1fr;gap:32px}.show{height:58vh}}
+
+
+/* hero: full-bleed changing background */
+.hero{position:relative;isolation:isolate}
+.hero-grid>*{min-width:0} /* swipeable amenities row must not widen the grid column */
+.hero-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#15100c}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.1);transition:opacity 1.6s var(--ease),transform 7s linear}
+.hero-bg img.on{opacity:1;transform:scale(1)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,10,7,.88) 0%,rgba(14,10,7,.64) 46%,rgba(14,10,7,.42) 100%),linear-gradient(to bottom,rgba(14,10,7,.6),transparent 24%,transparent 68%,rgba(14,10,7,.75))}
+.hero .lead{color:rgba(242,232,215,.84)}
+.hero .book{background:rgba(32,25,19,.58);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:rgba(242,232,215,.16)}
+.hero .book label{border-color:rgba(242,232,215,.14)}
+.hero .marquee{background:rgba(14,10,7,.38);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-color:rgba(242,232,215,.14)}
+.slide-ui{display:flex;align-items:center;gap:14px;margin-top:clamp(14px,2.4svh,26px)}
+.show-cap{display:flex;gap:12px;align-items:baseline;font-size:.85rem;min-width:0}
+.show-cap .t{display:inline-flex;gap:.55rem;align-items:baseline;animation:capin .8s var(--ease);white-space:nowrap}
+.show-cap b{font-family:"Instrument Serif",serif;font-weight:400;font-size:1.25rem}
+.show-cap small{color:var(--muted)}
+#show-n{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.76rem}
+/* amenities glass card in the hero */
+.amen-card{justify-self:end;width:100%;max-width:560px;background:rgba(24,18,13,.55);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);border:1px solid rgba(242,232,215,.14);border-radius:26px;padding:clamp(18px,3svh,30px);box-shadow:0 30px 60px -30px rgba(0,0,0,.6);scroll-margin-top:90px}
+.amen-card .kicker{margin-bottom:.5rem}
+.amen-card h2{font-size:clamp(1.5rem,min(2.4vw,4svh),2.2rem);margin-bottom:clamp(12px,2svh,20px)}
+.hero .amen{grid-template-columns:1fr 1fr;gap:clamp(12px,2svh,20px) 22px;border-top:1px solid var(--line);padding-top:clamp(12px,2svh,18px)}
+.hero .amen>div{border:0;padding:0}
+.hero .amen h3{font-size:1.2rem;margin-bottom:.45rem;color:var(--accent)}
+.hero .amen ul{gap:.35rem}
+.hero .amen li{font-size:.84rem;gap:.5rem;line-height:1.35}
+.hero .amen svg{width:16px;height:16px}
+.hero .unavail{margin-top:clamp(10px,2svh,18px);font-size:.76rem}
+.hero .unavail s{padding:.15rem .6rem}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:5px 0;white-space:nowrap;line-height:1.2}
+.marquee div{display:inline-flex;gap:1.6rem;animation:mq 40s linear infinite;font-family:"Instrument Serif",serif;font-size:clamp(1rem,1.3vw,1.3rem)}
+.marquee span::after{content:"✳";color:var(--accent);margin-left:1.6rem;font-size:.6em;vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* hero stats */
+.stats{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:0;margin-top:26px;max-width:620px}
+.stats div{padding:2px 22px 0;border-left:1px solid var(--line)}
+.stats div:first-child{border:0;padding-left:0}
+.stats b{display:block;font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(2rem,3vw,2.5rem);line-height:1}
+.stats span{color:var(--muted);font-size:.8rem;white-space:nowrap}
+@media(max-width:480px){.stats{grid-template-columns:repeat(4,1fr)}.stats div{padding:0 8px}.stats span{white-space:normal;font-size:.74rem;line-height:1.3;display:block}}
+
+/* day story */
+.story{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:56px}
+.story-media{position:sticky;top:max(96px,calc(50svh - 255px));height:min(540px,calc(100svh - 150px));display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(20px,2.6vw,36px);align-items:center}
+.frame{position:relative;height:100%;border-radius:28px;overflow:hidden;background:var(--card)}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1s var(--ease),transform 1.6s var(--ease)}
+.frame img.on{opacity:1;transform:none}
+.frame img.whole{object-fit:contain;background:#ece0cc}
+.dial{display:flex;flex-direction:column;align-items:center;gap:.4rem;text-align:center}
+.watch{width:clamp(132px,11.5vw,178px);aspect-ratio:1;border-radius:50%;padding:5.5%;position:relative;
+  background:conic-gradient(from 200deg,#8d6127,#f3d9a4 10%,#b8873f 22%,#6f4a1d 36%,#e9c784 50%,#a87634 63%,#f8e6bf 78%,#9a6b2c 90%,#8d6127);
+  box-shadow:0 28px 50px -20px rgba(0,0,0,.6),0 8px 16px -6px rgba(0,0,0,.4),inset 0 1px 1px rgba(255,255,255,.7),inset 0 -2px 3px rgba(0,0,0,.4)}
+.watch::after{content:"";position:absolute;inset:4.2%;border-radius:50%;box-shadow:0 0 0 1px rgba(60,38,14,.55),inset 0 0 0 1px rgba(255,236,200,.25);pointer-events:none}
+.dial-face{width:100%;height:100%;border-radius:50%;overflow:hidden;position:relative;
+  background:repeating-conic-gradient(from 0deg,rgba(255,240,220,.035) 0 .5deg,transparent .5deg 2deg),radial-gradient(circle at 50% 28%,#4b3626 0%,#26190f 52%,#120c07 100%);
+  box-shadow:inset 0 3px 10px rgba(0,0,0,.8),inset 0 -1px 2px rgba(255,255,255,.08)}
+.clock{display:block;width:100%;height:100%}
+.clock .tm{stroke:rgba(240,222,190,.38);stroke-width:.35}
+.clock .brand{font:600 4px Geist,sans-serif;letter-spacing:.85px;fill:#e8cd98;text-anchor:middle}
+.clock .sub{font:400 2.3px Geist,sans-serif;letter-spacing:.55px;fill:rgba(232,205,152,.55);text-anchor:middle}
+.clock .h,.clock .m{transform-origin:50px 50px;transition:transform 1.2s var(--ease)}
+.clock .s{transform-origin:50px 50px;animation:sweep 60s linear infinite}
+@keyframes sweep{to{transform:rotate(360deg)}}
+.crystal{position:absolute;inset:5.5%;border-radius:50%;pointer-events:none;
+  background:linear-gradient(150deg,rgba(255,255,255,.24) 0%,rgba(255,255,255,.07) 28%,transparent 45%),radial-gradient(130% 55% at 50% -12%,rgba(255,255,255,.14),transparent 60%),radial-gradient(60% 30% at 70% 105%,rgba(255,220,170,.08),transparent 70%)}
+.dial b{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(1.6rem,2.2vw,2.2rem);line-height:1;margin-top:.5rem;font-variant-numeric:tabular-nums}
+.dial small{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.dots{position:absolute;right:16px;top:50%;transform:translateY(-50%);display:grid;gap:8px;z-index:2}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45);transition:transform .4s var(--ease),background .4s}
+.dots i.on{background:#fff;transform:scale(1.6)}
+.steps{padding:8vh 0}
+.step{min-height:60vh;display:flex;flex-direction:column;justify-content:center;opacity:.22;transition:opacity .7s var(--ease)}
+.step.on{opacity:1}
+.step time{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.step h3{font-size:clamp(2.2rem,3.8vw,3.3rem);margin:.55rem 0 .8rem}
+.step p{color:var(--muted);max-width:42ch;font-weight:300}
+.step ul{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
+.step li{border:1px solid var(--line);border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+@media(max-width:900px){
+  .story{grid-template-columns:1fr;gap:0}
+  .story-media{grid-template-columns:minmax(0,1fr) 92px;gap:12px}
+  .watch{width:86px}
+  .dial b{font-size:1.15rem}
+  .dial small{display:none}
+  .story-media{top:68px;height:52vh;z-index:2;margin:0 -20px;padding:0 20px 10px;background:var(--bg);transition:background-color 1s var(--ease)}
+  .step{min-height:56vh}
+}
+
+
+/* gallery */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,clamp(110px,calc((100svh - 2 * var(--pad) - 160px) / 3),210px));gap:10px}
+.bento figure{position:relative;overflow:hidden;border-radius:var(--r);cursor:zoom-in;background:var(--card)}
+.bento img,.bento video{width:100%;height:100%;object-fit:cover}
+.bento figure:hover img{transform:scale(1.06)!important;transition:transform 1.2s var(--ease)}
+.bento figcaption{position:absolute;left:12px;bottom:12px;color:#fff;font-size:.78rem;background:rgba(20,14,10,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:.3rem .75rem;border-radius:999px;transform:translateY(calc(100% + 16px));transition:transform .5s var(--ease)}
+.bento figure:hover figcaption,.bento figure:focus-within figcaption{transform:none}
+.g1{grid-row:span 2}.g4{grid-row:span 2}.gv{grid-column:span 2;cursor:pointer!important}
+.play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(20,14,10,.25);border:0;cursor:pointer;color:#fff;transition:opacity .4s}
+.play span{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:.8rem 1.2rem .8rem .8rem;border-radius:999px;font-size:.9rem;transition:transform .4s var(--ease)}
+.play:hover span{transform:scale(1.05)}
+.play svg{width:34px;height:34px;padding:9px;border-radius:50%;background:#fff;fill:#1f1812}
+.playing .play{opacity:0;pointer-events:none}
+@media(max-width:800px){.bento{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:170px}.gv{grid-column:span 2}.bento figcaption{transform:none}}
+
+/* amenities */
+.amen{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.amen>div{padding:24px 22px 4px;border-left:1px solid var(--line)}
+.amen>div:first-child{border:0;padding-left:0}
+.amen h3{font-size:1.75rem;margin-bottom:.9rem}
+.amen ul{list-style:none;display:grid;gap:.7rem}
+.amen li{display:flex;gap:.7rem;align-items:flex-start;font-size:.94rem}
+.amen svg{flex:none;width:20px;height:20px;margin-top:2px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.amen svg *{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s var(--ease) .3s}
+.amen .in svg *{stroke-dashoffset:0}
+.unavail{margin-top:28px;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;color:var(--muted);font-size:.88rem}
+.unavail s{border:1px dashed var(--line);border-radius:999px;padding:.25rem .75rem}
+@media(max-width:900px){.amen{grid-template-columns:1fr 1fr}.amen>div{border:0;padding:22px 0 0}}
+
+
+/* host + reviews */
+.host{display:grid;grid-template-columns:340px 1fr;gap:40px;align-items:center}
+.host>*{min-width:0} /* the looping reviews track is max-content wide; don't let it stretch the grid */
+.host-card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:26px;transition:background-color 1s var(--ease)}
+.host-top{display:flex;align-items:center;gap:14px}
+.avatar{width:62px;height:62px;border-radius:50%;background:conic-gradient(from 200deg,#e3aa5e,#b46f28,#e3aa5e);display:grid;place-items:center;font-family:"Instrument Serif",serif;font-size:2rem;color:#fff;flex:none}
+.host-top h3{font-size:1.9rem}
+.host-top small{color:var(--muted);font-size:.84rem}
+.hstats{display:grid;grid-template-columns:repeat(3,1fr);margin:20px 0;padding:16px 0;border-block:1px solid var(--line)}
+.hstats b{display:block;font-family:"Instrument Serif",serif;font-weight:400;font-size:1.7rem;line-height:1.1}
+.hstats span{font-size:.74rem;color:var(--muted)}
+.revs{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.rev-track{display:flex;gap:14px;width:max-content;animation:mq 46s linear infinite}
+.revs:hover .rev-track{animation-play-state:paused}
+.rev{width:340px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:background-color 1s var(--ease)}
+.rev q{font-family:"Instrument Serif",serif;font-size:1.32rem;line-height:1.25;quotes:"“" "”"}
+.rev footer{display:flex;align-items:center;gap:.6rem;font-size:.84rem;color:var(--muted);margin-top:auto}
+.rev footer i{font-style:normal;width:32px;height:32px;border-radius:50%;background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--accent);display:grid;place-items:center;font-weight:600;font-size:.75rem}
+.stars{color:var(--accent);letter-spacing:2px;font-size:.85rem}
+@media(max-width:900px){.host{grid-template-columns:1fr}.rev{width:280px}}
+
+/* arrive */
+.loc{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.radar-card{position:relative;background:#17120e;color:#efe4d2;border-radius:26px;overflow:hidden;display:flex;flex-direction:column;min-height:440px}
+.radar-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 82%,rgba(227,170,94,.16),transparent 60%);pointer-events:none}
+.radar{flex:1;position:relative}
+.radar svg{position:absolute;inset:0;width:100%;height:100%}
+.radar .ring{fill:none;stroke:rgba(239,228,210,.14);stroke-dasharray:2 5}
+.radar .rl{fill:rgba(239,228,210,.45);font:500 9px Geist;letter-spacing:.08em}
+.radar .ln{stroke:rgba(239,228,210,.22);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s var(--ease),stroke .3s}
+.radar.in .ln{stroke-dashoffset:0}
+.radar .pt circle{fill:#e3aa5e;transition:r .3s var(--ease)}
+.radar .pt .png{fill:none;stroke:#e3aa5e;stroke-width:1.2;transform-box:fill-box;transform-origin:center;opacity:0;animation:ping 6s linear infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.9}14%{transform:scale(4);opacity:0}100%{opacity:0}}
+.radar .pt text{fill:#efe4d2;font:400 11px Geist;transition:fill .3s}
+.radar .pt.hot circle:not(.png){r:6}
+.radar .pt.hot text{fill:#ffcf8a;font-weight:600}
+.radar .ln.hot{stroke:#e3aa5e;stroke-dasharray:none}
+.radar .home{fill:#fff}
+.radar .halo{fill:none;stroke:#e3aa5e;transform-box:fill-box;transform-origin:center;animation:halo 2.6s var(--ease) infinite}
+.radar .halo.b{animation-delay:1.3s}
+@keyframes halo{from{transform:scale(1);opacity:.8}to{transform:scale(5);opacity:0}}
+.radar iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.2) sepia(.15)}
+.radar-bar{position:relative;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;border-top:1px solid rgba(239,228,210,.1);background:rgba(255,255,255,.03)}
+.radar-bar address{font-style:normal;font-size:.84rem;color:rgba(239,228,210,.75)}
+.radar-bar address b{color:#efe4d2;font-weight:500;display:block}
+.radar-bar .btns{display:flex;gap:8px}
+.ghost{background:transparent;border:1px solid rgba(239,228,210,.25);color:#efe4d2;border-radius:999px;padding:.55rem 1rem;font-size:.84rem;cursor:pointer;transition:background .3s,border-color .3s}
+.ghost:hover{background:rgba(239,228,210,.1);border-color:rgba(239,228,210,.5)}
+.radar-card .btn{background:#efe4d2;color:#17120e}
+.dist{list-style:none;border-top:1px solid var(--line)}
+.dist a{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.78rem .2rem;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .35s var(--ease),color .3s}
+.dist a span{flex:1;color:var(--muted);transition:color .3s}
+.dist a b{font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:.92rem}
+.dist a::after{content:"↗";color:var(--accent);opacity:0;margin-left:-.6rem;transition:opacity .3s,margin .35s var(--ease)}
+.dist a:hover,.dist a.hot{padding-left:.7rem}
+.dist a:hover span,.dist a.hot span{color:var(--ink)}
+.dist a:hover::after,.dist a.hot::after{opacity:1;margin-left:0}
+@media(max-width:900px){.loc{grid-template-columns:1fr}.radar-card{min-height:380px}}
+
+/* faq */
+
+/* faq tiles */
+.qa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.qa{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,2.4svh,22px);display:flex;flex-direction:column;gap:.55rem;transition:transform .45s var(--ease),border-color .3s,box-shadow .45s var(--ease),background-color 1s var(--ease)}
+.qa:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 55%,transparent);box-shadow:0 22px 40px -26px var(--shade)}
+.qa-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.2rem}
+.qa-top i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 13%,transparent);transition:background .35s}
+.qa-top svg{width:19px;height:19px;fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+.qa:hover .qa-top i{background:var(--accent)}.qa:hover .qa-top svg{stroke:#fff}
+.qa-top span{font-family:"Instrument Serif",serif;font-size:1.1rem;color:var(--muted);opacity:.6}
+.qa h3{font-size:clamp(1.2rem,1.5vw,1.4rem);line-height:1.15}
+.qa p{color:var(--muted);font-size:.88rem;font-weight:300;line-height:1.5}
+@media(max-width:900px){.qa-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){
+  .qa-grid{grid-template-columns:none;grid-template-rows:repeat(2,auto);grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;margin:0 -20px;padding:0 20px 4px;scrollbar-width:none;gap:10px}
+  .qa-grid::-webkit-scrollbar{display:none}
+  .qa{scroll-snap-align:start;padding:14px}
+  .qa p{font-size:.82rem}
+}
+/* finale */
+.finale{padding:clamp(96px,14svh,120px) 0 var(--pad);overflow:hidden}
+.lights{position:absolute;left:0;right:0;top:0;height:150px;width:100%;pointer-events:none}
+.lights circle{fill:#ffcf7a;filter:drop-shadow(0 0 5px #ffb84a);animation:twinkle 2.6s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+.finale-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative}
+.finale h2{font-size:clamp(3rem,7.4vw,6rem);line-height:.92;margin-bottom:1.1rem}
+.cb{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cb h3{grid-column:span 2;font-size:1.7rem;margin-bottom:.2rem}
+.cb label{font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:grid;gap:.35rem}
+.cb input{width:100%;padding:.78rem .95rem;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--ink);font:400 .92rem Geist;color-scheme:dark;transition:border-color .3s}
+.cb input:focus{outline:none;border-color:var(--accent)}
+.cb .full{grid-column:span 2}
+.cb .btn{justify-content:center;margin-top:4px}
+.thanks{display:none;grid-column:span 2;color:var(--accent);font-size:.9rem}
+@media(max-width:900px){.finale{padding:96px 0 72px}.finale-grid{grid-template-columns:1fr;gap:36px}}
+
+
+.foot{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+
+/* floating whatsapp */
+.dock{position:fixed;right:18px;bottom:18px;z-index:45;display:flex;align-items:center;gap:10px}
+.fab{display:flex;align-items:center;height:52px;border-radius:999px;background:var(--card);border:1px solid var(--line);box-shadow:0 14px 30px -14px var(--shade);text-decoration:none;color:var(--ink);overflow:hidden;transition:background-color 1s var(--ease)}
+.fab i{width:50px;height:50px;display:grid;place-items:center;flex:none}
+.fab svg{width:24px;height:24px;fill:#2a9d5c}
+.fab span{max-width:0;white-space:nowrap;font-size:.86rem;font-weight:500;transition:max-width .5s var(--ease),padding .5s var(--ease)}
+.fab:hover span,.fab:focus-visible span{max-width:160px;padding-right:18px}
+
+/* cursor bubble */
+.cursor{position:fixed;left:0;top:0;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.76rem;font-weight:500;letter-spacing:.04em;pointer-events:none;z-index:70;transform:scale(0)}
+
+/* chat assistant */
+.ask{display:flex;align-items:center;gap:.6rem;height:52px;padding:0 18px 0 8px;border-radius:999px;border:0;cursor:pointer;background:var(--btn);color:var(--btn-ink);font:500 .9rem Geist;box-shadow:0 14px 30px -12px var(--shade);transition:transform .3s var(--ease),background-color 1s var(--ease),color 1s var(--ease)}
+.ask:hover{transform:translateY(-2px)}
+.ask .av{width:36px;height:36px}
+.ask[aria-expanded=true] .lbl::after{content:" · close"}
+.av{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(from 200deg,#e3aa5e,#b46f28,#e3aa5e);position:relative}
+.av svg{width:18px;height:18px;fill:#fff}
+.av::after{content:"";position:absolute;right:0;bottom:0;width:9px;height:9px;border-radius:50%;background:#3fb36b;border:2px solid var(--btn)}
+.nudge{position:fixed;right:18px;bottom:80px;z-index:45;max-width:240px;background:var(--card);border:1px solid var(--line);border-radius:16px 16px 4px 16px;padding:.7rem .9rem;font-size:.86rem;box-shadow:0 16px 34px -16px var(--shade);cursor:pointer;animation:msgin .5s var(--ease)}
+.nudge[hidden]{display:none}
+.bot{position:fixed;right:18px;bottom:82px;z-index:55;width:min(384px,calc(100vw - 36px));height:min(590px,calc(100svh - 110px));display:flex;flex-direction:column;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:24px;box-shadow:0 30px 70px -24px var(--shade);overflow:hidden;transform-origin:bottom right;animation:botin .45s var(--ease);transition:background-color 1s var(--ease)}
+.bot[hidden]{display:none}
+@keyframes botin{from{opacity:0;transform:translateY(16px) scale(.96)}}
+.bot-h{display:flex;align-items:center;gap:.7rem;padding:14px 14px 12px;border-bottom:1px solid var(--line)}
+.bot-h b{display:block;font-weight:500;font-size:.95rem;line-height:1.2}
+.bot-h small{color:var(--muted);font-size:.74rem}
+.bot-h .av::after{border-color:var(--card)}
+.bot-x{margin-left:auto;width:32px;height:32px;border-radius:50%;border:0;background:transparent;cursor:pointer;font-size:1.3rem;color:var(--muted);transition:background .2s}
+.bot-x:hover{background:var(--line)}
+.bot-log{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:8px;overscroll-behavior:contain}
+.msg{max-width:86%;padding:.6rem .85rem;border-radius:16px;font-size:.88rem;line-height:1.45;animation:msgin .35s var(--ease);overflow-wrap:anywhere}
+@keyframes msgin{from{opacity:0;transform:translateY(8px)}}
+.msg.b{background:color-mix(in srgb,var(--bg) 75%,transparent);border-bottom-left-radius:4px;align-self:flex-start}
+.msg.u{background:var(--btn);color:var(--btn-ink);border-bottom-right-radius:4px;align-self:flex-end}
+.msg a{color:var(--accent)}
+.msg.demo{border:1px dashed var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.typing{display:flex;gap:4px;padding:.8rem .9rem}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:dot 1s infinite ease-in-out}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,80%,100%{transform:translateY(0);opacity:.4}40%{transform:translateY(-4px);opacity:1}}
+.sum{display:grid;grid-template-columns:auto 1fr;gap:.25rem .9rem;margin-top:.5rem;font-size:.84rem}
+.sum dt{color:var(--muted)}
+.mail{margin-top:.5rem;font:400 .76rem/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.6rem .7rem;max-height:170px;overflow:auto}
+.bot-quick{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 10px}
+.bot-quick:empty{display:none}
+.q{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:.42rem .8rem;font:500 .8rem Geist;cursor:pointer;transition:border-color .2s,background .2s,transform .2s var(--ease);animation:msgin .4s var(--ease) backwards}
+.q:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.q:active{transform:scale(.95)}
+.q.pri{background:var(--btn);color:var(--btn-ink);border-color:var(--btn)}
+.bot-in{display:flex;gap:8px;padding:10px 12px 12px;border-top:1px solid var(--line)}
+.bot-in input{flex:1;min-width:0;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:.7rem 1rem;font:400 .9rem Geist;outline:none;color-scheme:light dark;transition:border-color .2s}
+.bot-in input:focus{border-color:var(--accent)}
+.bot-in button{width:42px;height:42px;flex:none;border-radius:50%;border:0;background:var(--accent);color:#fff;font-size:1.1rem;cursor:pointer;transition:transform .2s var(--ease)}
+.bot-in button:hover{transform:scale(1.06)}
+.bot-note{font-size:.68rem;color:var(--muted);text-align:center;padding:0 12px 8px;margin-top:-4px}
+@media(max-width:600px){.ask .lbl{display:none}.ask{padding:0 8px}.bot{right:10px;bottom:78px;width:calc(100vw - 20px);height:calc(100svh - 96px)}.nudge{right:10px}.dock{right:12px}}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;margin:0}
+dialog::backdrop{background:rgba(14,10,7,.94)}
+dialog[open] .lb img{animation:lbin .5s var(--ease)}
+@keyframes lbin{from{opacity:0;transform:scale(.96)}}
+.lb{width:100%;height:100%;display:grid;place-items:center;position:relative}
+.lb img{max-width:min(92vw,880px);max-height:82vh;border-radius:16px;object-fit:contain}
+.lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;width:48px;height:48px;border-radius:50%;font-size:1.3rem;cursor:pointer;transition:background .2s}
+.lb button:hover{background:rgba(255,255,255,.26)}
+.lb .x{top:18px;right:18px}.lb .prev{left:18px;top:calc(50% - 24px)}.lb .next{right:18px;top:calc(50% - 24px)}
+.lb .cap{position:absolute;bottom:20px;color:#e9dcc6;font-size:.88rem}
+
+
+/* ---------- fit-to-screen: tablet & phone ---------- */
+@media(max-width:900px){
+  .hero{min-height:100svh;padding:76px 0 0}
+  .hero-grid{grid-template-columns:1fr;gap:clamp(12px,2.2svh,28px)}
+  .hero-grid{align-content:center;padding-bottom:14px}
+  .hero-bg::after{background:linear-gradient(to bottom,rgba(14,10,7,.7),rgba(14,10,7,.62) 40%,rgba(14,10,7,.85))}
+  .amen-card{justify-self:stretch;max-width:none;padding:14px 0 12px 14px;border-radius:20px}
+  .amen-card h2{display:none}
+  .hero .amen{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;border:0;padding:0 14px 2px 0;scrollbar-width:none}
+  .hero .amen::-webkit-scrollbar{display:none}
+  .hero .amen>div{flex:0 0 min(62%,240px);scroll-snap-align:start;background:rgba(255,255,255,.05);border-radius:14px;padding:10px 12px}
+  .hero .unavail{margin:8px 14px 0 0}
+  .marquee div{font-size:1rem;gap:1.2rem}
+  .marquee span::after{margin-left:1.2rem}
+  .hero h1{font-size:clamp(2.4rem,min(11vw,7.2svh),5rem);margin:.55rem 0 .6rem}
+  .hero .lead{font-size:.93rem;line-height:1.5}
+  .book{margin-top:clamp(12px,2svh,24px)}
+  .stats{margin-top:clamp(10px,2svh,26px)}
+  .bento{grid-template-columns:repeat(3,1fr);grid-template-rows:none;grid-auto-flow:dense;grid-auto-rows:clamp(88px,calc((100svh - 2 * var(--pad) - 150px) / 4),200px);gap:8px}
+  .bento .g1{grid-row:span 2}.bento .g4{grid-row:auto}.bento .gv{grid-column:span 3}
+  .bento figcaption{font-size:.7rem;left:8px;bottom:8px}
+  .host{gap:20px}
+  .host-card{padding:18px}
+  .hstats{margin:12px 0;padding:10px 0}
+  .rev{width:260px;padding:16px;gap:10px}
+  .rev q{font-size:1.12rem}
+  .radar-card{min-height:0;height:clamp(250px,40svh,440px)}
+  .radar-bar{padding:10px 12px}
+  .radar-bar address{font-size:.74rem}
+  .dist a{padding:.5rem .2rem;font-size:.9rem}
+  .finale{padding:clamp(80px,12svh,110px) 0 var(--pad)}
+  .finale h2{font-size:clamp(2.5rem,min(11vw,8svh),6rem)}
+  .finale-grid{gap:clamp(18px,3svh,36px)}
+}
+@media(max-width:600px){
+  .book label:nth-child(3){grid-column:auto}
+  .book .btn{grid-column:auto;justify-content:center}
+  .book-msg{display:none}
+  .amen{grid-template-columns:1fr 1fr;column-gap:14px}
+  .amen>div{padding-top:14px}
+  .amen h3{font-size:1.35rem;margin-bottom:.5rem}
+  .amen ul{gap:.45rem}
+  .amen li{font-size:.82rem;gap:.5rem;line-height:1.35}
+  .amen svg{width:16px;height:16px}
+  .unavail{margin-top:16px;font-size:.8rem}
+  .cb{padding:18px;gap:8px}
+  .cb h3{font-size:1.4rem}
+  .cb label.full{grid-column:auto}
+  .cb input{padding:.65rem .8rem}
+  .chips .chip{padding:.45rem .85rem .45rem .5rem;font-size:.8rem}
+}
+
+@media(max-width:900px){
+  .bento{grid-auto-rows:clamp(88px,calc((100svh - 2 * var(--pad) - 196px) / 4),200px)}
+  .loc{gap:12px}
+  .radar-card{height:clamp(220px,32svh,440px)}
+}
+@media(max-width:600px){
+  /* distances as a 2-up grid of small cards so the whole location section fits one phone screen */
+  .dist{display:grid;grid-template-columns:1fr 1fr;column-gap:14px}
+  .dist a{flex-direction:column;align-items:flex-start;gap:0;padding:.45rem 0}
+  .dist a::after{display:none}
+  .dist a span{font-size:.82rem}
+  .dist a b{font-size:.8rem}
+  .loc .note{font-size:.7rem}
+}
+@media(max-width:900px){
+  .dock{transition:opacity .4s,transform .5s var(--ease)}
+  body:not(.past-hero) .dock{opacity:0;transform:translateY(24px);pointer-events:none}
+}
+@media(max-width:600px) and (max-height:760px){
+  .marquee div{font-size:.95rem}
+  .hero-grid{gap:10px;padding-bottom:10px}
+  .hero h1{margin:.4rem 0 .45rem}
+  .hero .lead{font-size:.88rem}
+}
+/* hero amenities on phones/tablets: one swipeable row of pills */
+@media(max-width:900px){
+  .amen-card{padding:12px 0 10px 12px}
+  .amen-card .kicker{margin-bottom:.45rem}
+  .hero .amen{gap:6px}
+  .hero .amen>div,.hero .amen ul{display:contents}
+  .hero .amen h3{display:none}
+  .hero .amen li{flex:none;white-space:nowrap;background:rgba(255,255,255,.07);border:1px solid rgba(242,232,215,.12);border-radius:999px;padding:.38rem .75rem;font-size:.8rem;scroll-snap-align:start}
+  .hero .unavail{font-size:.7rem;margin-top:8px}
+  .slide-ui{min-width:0;overflow:hidden;gap:10px}
+  .slide-ui .bars{width:96px}
+  .show-cap small{display:none}
+}
+@media(max-width:600px) and (max-height:760px){.hero .stats{display:none}}
+@media(min-width:901px) and (max-height:740px){.hero .book-msg{display:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv,.ri,.w>span{opacity:1!important;transform:none!important;clip-path:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top">The Nap <em>Niwas</em></a>
+    <ul>
+      <li><a href="#day">A day here</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#arrive">Location</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn sm" href="https://www.airbnb.co.uk/rooms/1820898712132260401" target="_blank" rel="noopener"><span class="dot-air" aria-hidden="true"></span>Book on Airbnb</a>
+  </div>
+  <div class="prog" id="prog"></div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top" data-tone="night">
+  <div class="hero-bg" id="show" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="live rv"><i></i><span id="hero-time">Zirakpur</span></span>
+      <h1 class="sp"><span class="l">The Nap</span><span class="l"><em>Niwas</em></span></h1>
+      <p class="lead rv"><em class="serif" style="color:var(--ink);font-size:1.15em">Niwas</em> means home. This one is a fully furnished private SOHO ten floors above CCC Zirakpur, with its own bedroom, living room, kitchen and balcony. Markets and cafés are just downstairs.</p>
+      <form class="book rv" id="book">
+        <label>Check-in<input type="date" name="in" required></label>
+        <label>Check-out<input type="date" name="out" required></label>
+        <label>Guests<select name="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></label>
+        <button class="btn" type="submit" aria-label="Check dates on Airbnb">Check dates</button>
+      </form>
+      <p class="book-msg rv" id="book-msg">Opens Airbnb with your dates. You won't be charged yet.</p>
+      <div class="stats rv">
+        <div><b data-count="4">4</b><span>Guests</span></div>
+        <div><b data-count="1">1</b><span>Bedroom</span></div>
+        <div><b data-count="2">2</b><span>Beds incl. sofa bed</span></div>
+        <div><b data-count="10">10</b><span>Floors up</span></div>
+      </div>
+      <div class="slide-ui rv"><div class="bars" id="bars"></div><div class="show-cap"><span id="show-cap"></span><span id="show-n"></span></div></div>
+    </div>
+    <aside class="amen-card rv" id="amenities" aria-label="Amenities">
+      <span class="kicker">Amenities</span>
+      <h2>Everything you need, <em>already here.</em></h2>
+      <div class="amen">
+        <div class="rv"><h3>Sleep</h3><ul>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 14h18M5 10V6h14v4"/></svg>Queen bed</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M3 17v-4a2 2 0 0 1 2-2h4v6M9 13h10a2 2 0 0 1 2 2v2M3 17h18"/></svg>Sofa bed in living room</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M4 4h16v6H4zM4 10l2 10M20 10l-2 10"/></svg>Blackout curtains</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M3 8h18v4H3zM6 12v3M12 12v5M18 12v3"/></svg>AC in bedroom</li>
+        </ul></div>
+        <div class="rv"><h3>Work &amp; play</h3><ul>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M3 10h18M5 10v10M19 10v10M8 10v4h8v-4"/></svg>Dedicated workspace</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19h.01"/></svg>Complimentary Wi-Fi</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M3 5h18v12H3zM8 21h8"/></svg>Smart TV in bedroom</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M3 8h18v4H3zM6 12v3M12 12v5M18 12v3"/></svg>AC in living room</li>
+        </ul></div>
+        <div class="rv"><h3>Kitchen</h3><ul>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M4 4h16v16H4zM4 9h16M9 14h6"/></svg>Induction cooktop</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M4 10h16v3a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6zM2 10h2M20 10h2"/></svg>Cookware, glasses &amp; kulhad cups</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M9 3h6v6l5 5H4l5-5zM4 14v2h16v-2"/></svg>Kitchen chimney</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M6 3h12v18H6zM6 10h12M9 6v2M9 13v3"/></svg>Fridge</li>
+        </ul></div>
+        <div class="rv"><h3>Outside &amp; arrival</h3><ul>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M3 21h18M5 21V11h14v10M5 15h14M9 11V3h6v8"/></svg>Private balcony with seating</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>Self check-in with lockbox</li>
+          <li><svg viewBox="0 0 24 24"><path pathLength="1" d="M6 20V6h7a4 4 0 0 1 0 8H6"/></svg>Free parking on premises</li>
+        </ul></div>
+      </div>
+      <p class="unavail">Not available: <s>Smoke alarm</s><s>Carbon monoxide alarm</s></p>
+    </aside>
+  </div>
+  <div class="marquee" aria-hidden="true"><div>
+    <span>Entire flat</span><span>Private balcony</span><span>Sleeps four</span><span>Kitchen</span><span>Free parking</span><span>Self check-in</span><span>Fast Wi-Fi</span>
+    <span>Entire flat</span><span>Private balcony</span><span>Sleeps four</span><span>Kitchen</span><span>Free parking</span><span>Self check-in</span><span>Fast Wi-Fi</span>
+  </div></div>
+</section>
+
+
+<!-- A DAY HERE -->
+<section id="day" style="padding-top:32px">
+  <div class="wrap">
+    <span class="kicker rv">A day at The Nap Niwas</span>
+    <h2 class="sp" style="max-width:15ch">Scroll through <em>your day</em> here.</h2>
+    <div class="story">
+      <div class="story-media">
+        <div class="frame" id="frame">
+          <img class="on" src="img/story-morning.jpg" alt="Dim bedroom in the morning with blackout curtains drawn">
+          <img src="img/workdesk.jpg" alt="Work desk with office chair and smart TV in the bedroom" loading="lazy">
+          <img class="whole" src="img/story-kitchen.jpg" alt="Kitchen collage: induction cooktop, chimney, crockery and kulhads, fridge" loading="lazy">
+          <img src="img/balcony-sunset-glow.jpg" alt="Sunset over Zirakpur from the 10th-floor balcony" loading="lazy">
+          <img src="img/balcony-night-glow.jpg" alt="Balcony at night with two wicker chairs, a table and city lights below" loading="lazy">
+          <img src="img/story-tv-night.jpg" alt="Bedroom TV glowing at night above the desk, fairy-lit bonsai below" loading="lazy">
+          <img src="img/story-night-bed.jpg" alt="Bedroom at night, glowing headboard and city lights through the balcony door" loading="lazy">
+          <div class="dots" id="dots" aria-hidden="true"></div>
+        </div>
+        <div class="dial" aria-hidden="true"><div class="watch"><div class="dial-face"><svg class="clock" viewBox="0 0 100 100"><defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbe8c0"/><stop offset=".5" stop-color="#d6a75c"/><stop offset="1" stop-color="#8a5f24"/></linearGradient><linearGradient id="goldL" x1="0" x2="1"><stop offset="0" stop-color="#fff0cf"/><stop offset="1" stop-color="#dcb068"/></linearGradient><linearGradient id="goldD" x1="0" x2="1"><stop offset="0" stop-color="#b98843"/><stop offset="1" stop-color="#7a5220"/></linearGradient><filter id="hs" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx=".5" dy="1.2" stdDeviation=".7" flood-color="#000" flood-opacity=".65"/></filter></defs><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(6 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(12 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(18 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(24 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(36 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(42 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(48 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(54 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(66 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(72 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(78 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(84 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(96 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(102 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(108 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(114 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(126 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(132 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(138 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(144 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(156 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(162 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(168 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(174 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(186 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(192 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(198 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(204 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(216 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(222 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(228 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(234 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(246 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(252 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(258 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(264 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(276 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(282 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(288 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(294 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(306 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(312 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(318 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(324 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(336 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(342 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(348 50 50)"/><line class="tm" x1="50" y1="3.2" x2="50" y2="5.4" transform="rotate(354 50 50)"/><rect x="47.3" y="6.5" width="2" height="10" rx=".4" fill="url(#gold)"/><rect x="50.7" y="6.5" width="2" height="10" rx=".4" fill="url(#gold)"/><rect x="49" y="6.5" width="2" height="6.5" rx=".4" fill="url(#gold)" transform="rotate(30 50 50)"/><rect x="49" y="6.5" width="2" height="6.5" rx=".4" fill="url(#gold)" transform="rotate(60 50 50)"/><rect x="49" y="6.5" width="2" height="8" rx=".4" fill="url(#gold)" transform="rotate(90 50 50)"/><rect x="49" y="6.5" width="2" height="6.5" rx=".4" fill="url(#gold)" transform="rotate(120 50 50)"/><rect x="49" y="6.5" width="2" height="6.5" rx=".4" fill="url(#gold)" transform="rotate(150 50 50)"/><rect x="49" y="6.5" width="2" height="8" rx=".4" fill="url(#gold)" transform="rotate(180 50 50)"/><rect x="49" y="6.5" width="2" height="6.5" rx=".4" fill="url(#gold)" transform="rotate(210 50 50)"/><rect x="49" y="6.5" width="2" height="6.5" rx=".4" fill="url(#gold)" transform="rotate(240 50 50)"/><rect x="49" y="6.5" width="2" height="8" rx=".4" fill="url(#gold)" transform="rotate(270 50 50)"/><rect x="49" y="6.5" width="2" height="6.5" rx=".4" fill="url(#gold)" transform="rotate(300 50 50)"/><rect x="49" y="6.5" width="2" height="6.5" rx=".4" fill="url(#gold)" transform="rotate(330 50 50)"/><text class="brand" x="50" y="33">NAP NIWAS</text><text class="sub" x="50" y="37.6">ZIRAKPUR · 10F</text><g class="h" filter="url(#hs)"><polygon points="50,55 47.7,47 50,25" fill="url(#goldL)"/><polygon points="50,55 52.3,47 50,25" fill="url(#goldD)"/></g><g class="m" filter="url(#hs)"><polygon points="50,57 48.25,47 50,11" fill="url(#goldL)"/><polygon points="50,57 51.75,47 50,11" fill="url(#goldD)"/></g><g class="s" filter="url(#hs)"><line x1="50" y1="64" x2="50" y2="8" stroke="#e5793f" stroke-width=".55" stroke-linecap="round"/><circle cx="50" cy="59.5" r="1.7" fill="#e5793f"/></g><circle cx="50" cy="50" r="2.5" fill="url(#gold)" filter="url(#hs)"/><circle cx="50" cy="50" r=".8" fill="#2a1d14"/></svg></div><div class="crystal"></div></div><b id="dial-time">8:00 AM</b><small id="dial-label">Wake slowly</small></div>
+      </div>
+      <div class="steps">
+        <article class="step on" data-time="8:00" data-tone="day">
+          <time>8:00 AM · Wake slowly</time>
+          <h3>No alarm. <em>Just quiet.</em></h3>
+          <p>Blackout curtains keep the morning out for as long as you like. Open them when you're ready and let the light in.</p>
+          <ul><li>Queen bed</li><li>Blackout curtains</li><li>AC</li></ul>
+        </article>
+        <article class="step" data-time="10:30" data-tone="day">
+          <time>10:30 AM · Get things done</time>
+          <h3>A desk that <em>means business.</em></h3>
+          <p>A full-width desk with drawers and an office chair, plus complimentary Wi-Fi. Calls in the morning, a film on the smart TV above the desk at night.</p>
+          <ul><li>Dedicated workspace</li><li>Wi-Fi</li><li>Smart TV</li></ul>
+        </article>
+        <article class="step" data-time="13:30" data-tone="day">
+          <time>1:30 PM · Lunch in</time>
+          <h3>Cook something <em>simple.</em></h3>
+          <p>Your private kitchen has an induction cooktop, a chimney, a granite counter and drawers stocked with cookware, glasses and kulhad cups.</p>
+          <ul><li>Induction cooktop</li><li>Cookware &amp; cups</li><li>Fridge</li></ul>
+        </article>
+        <article class="step" data-time="18:15" data-tone="dusk">
+          <time>6:15 PM · Balcony hour</time>
+          <h3>Ten floors up, <em>the sky turns gold.</em></h3>
+          <p>Your private balcony has a panoramic view over Zirakpur. Make some chai, find a seat and watch the sun go down.</p>
+          <ul><li>Private balcony</li><li>High floor</li><li>Panoramic view</li></ul>
+        </article>
+        <article class="step" data-time="20:00" data-tone="night">
+          <time>8:00 PM · Dinner outside</time>
+          <h3>A table for two, <em>above the lights.</em></h3>
+          <p>Two wicker chairs, a gingham-covered table and money plant along the railing, with the city glowing below. Bring dinner up from CCC and eat outside.</p>
+          <ul><li>Balcony seating</li><li>City lights</li><li>Evening breeze</li></ul>
+        </article>
+        <article class="step" data-time="21:30" data-tone="night">
+          <time>9:30 PM · Lights low</time>
+          <h3>Fairy lights <em>and a film.</em></h3>
+          <p>Unwind on the sofa under the fairy lights, then take the film to bed. The smart TV faces the queen bed. The sofa opens into a bed for guests three and four.</p>
+          <ul><li>Sofa bed</li><li>Fairy lights</li><li>Smart TV in bedroom</li></ul>
+        </article>
+        <article class="step" data-time="23:30" data-tone="night">
+          <time>11:30 PM · The nap, finally</time>
+          <h3>Sleep in. <em>It's what we're named for.</em></h3>
+          <p>The headboard glows warm and the room goes still. Tomorrow can wait.</p>
+          <ul><li>Fresh linen</li><li>Backlit headboard</li><li>Total dark</li></ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" data-tone="day">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kicker rv">Gallery</span><h2 class="sp">Every corner, <em>and the view.</em></h2></div>
+      <button class="btn sm rv" type="button" data-i="0">All 15 photos <span class="arr">→</span></button>
+    </div>
+    <div class="bento">
+      <figure class="g1 ri" data-i="0"><img src="img/bedroom.jpg" alt="Bedroom" loading="lazy"><figcaption>Bedroom</figcaption></figure>
+      <figure class="ri" data-i="2"><img src="img/living.jpg" alt="Living room" loading="lazy"><figcaption>Living room</figcaption></figure>
+      <figure class="ri" data-i="4"><img src="img/workdesk.jpg" alt="Work desk" loading="lazy" style="object-position:center 65%"><figcaption>Workspace</figcaption></figure>
+      <figure class="g4 ri" data-i="10"><img src="img/balcony-night-glow.jpg" alt="Balcony at night" loading="lazy"><figcaption>Balcony</figcaption></figure>
+      <figure class="ri" data-i="5"><img src="img/kitchen.jpg" alt="Kitchen with induction cooktop" loading="lazy" style="object-position:center 75%"><figcaption>Kitchen</figcaption></figure>
+      <figure class="ri" data-i="6"><img src="img/kitchen-drawer.jpg" alt="Kitchen drawer with cookware and kulhad cups" loading="lazy"><figcaption>Cookware &amp; cups</figcaption></figure>
+      <figure class="gv ri" id="vid">
+        <video src="img/walkthrough.mp4" poster="img/living.jpg" playsinline preload="none" aria-label="Video walkthrough of The Nap Niwas"></video>
+        <button class="play" type="button"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Watch the walkthrough</span></button>
+      </figure>
+      <figure class="ri" data-i="7"><img src="img/balcony-sunset-glow.jpg" alt="Sunset over the city from the balcony" loading="lazy" style="object-position:center 60%"><figcaption>Balcony at sunset</figcaption></figure>
+      <figure class="ri" data-i="8"><img src="img/balcony-dusk-glow.jpg" alt="Dusk over CCC Zirakpur from the balcony" loading="lazy" style="object-position:center 60%"><figcaption>Dusk over CCC</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- HOST + REVIEWS -->
+<section id="host" data-tone="day" style="padding-top:24px">
+  <div class="wrap host">
+    <aside class="host-card rv">
+      <div class="host-top"><div class="avatar" aria-hidden="true">G</div><div><h3>Gulshan</h3><small>Your host · on Airbnb</small></div></div>
+      <div class="hstats">
+        <div><b>100%</b><span>Response rate</span></div>
+        <div><b>&lt;1 hr</b><span>Replies within</span></div>
+        <div><b>5.0★</b><span>Host rating</span></div>
+      </div>
+      <div class="chips">
+        <a class="chip airbnb" href="https://www.airbnb.co.uk/rooms/1820898712132260401" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8505b" d="M12 3 3 10.5V21h6v-6h6v6h6V10.5z"/></svg></i>Message</a>
+      </div>
+    </aside>
+    <div>
+      <div class="head" style="margin-bottom:22px"><div><span class="kicker rv">Guest notes</span><h2 class="sp">Stays that <em>felt like home.</em></h2></div><span class="note rv">Sample reviews for this demo</span></div>
+      <div class="revs rv"><div class="rev-track" id="revs">
+        <article class="rev"><span class="stars">★★★★★</span><q>Morning chai on the balcony with that view was the highlight. The blackout curtains meant I actually slept in.</q><footer><i>AK</i>Aarav K. · Delhi</footer></article>
+        <article class="rev"><span class="stars">★★★★★</span><q>Stayed four nights for work. A proper desk, Wi-Fi that held up on calls, and a living room to switch off in.</q><footer><i>SR</i>Simran R. · Bengaluru</footer></article>
+        <article class="rev"><span class="stars">★★★★★</span><q>Lockbox check-in was effortless and Gulshan replied within minutes. Free parking and a kitchen made the weekend easy.</q><footer><i>MV</i>Meera &amp; Vikram · Mumbai</footer></article>
+        <article class="rev"><span class="stars">★★★★★</span><q>Dinner on the balcony with the city lit up below felt like a little holiday. Spotless and so cosy.</q><footer><i>NS</i>Neha S. · Jaipur</footer></article>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARRIVE -->
+<section id="arrive" data-tone="day" style="padding-top:24px">
+  <div class="wrap">
+    <div class="head"><div><span class="kicker rv">Getting here</span><h2 class="sp">Zirakpur, at <em>Chandigarh's doorstep.</em></h2></div></div>
+    <div class="loc">
+      <div class="radar-card rv">
+        <div class="radar" id="radar" role="img" aria-label="Radar map with The Nap Niwas at the centre and nearby Chandigarh landmarks plotted by direction and distance"></div>
+        <div class="radar-bar">
+          <address><b>The Nap Niwas</b>SOHO 1034, 10th Floor, Block D&amp;E, CCC Zirakpur</address>
+          <div class="btns">
+            <button class="ghost" type="button" id="maptoggle" aria-pressed="false">Live map</button>
+            <a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=30.6389313,76.8189392">Directions <span class="arr">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="rv">
+        <ul class="dist" id="dist"><li><a href="#arrive" onclick="return false"><span>Markets &amp; cafés in CCC</span><b>Downstairs</b></a></li></ul>
+        <p class="note" style="margin-top:.8rem">Approximate drive times, which vary with traffic. Tap a place for live directions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" data-tone="day" style="padding-top:24px">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kicker rv">Questions</span><h2 class="sp">Good to <em>know.</em></h2></div>
+      <button class="btn sm rv" type="button" id="faq-ask">Still curious? Ask Niwas <span class="arr">→</span></button>
+    </div>
+    <div class="qa-grid">
+      <article class="qa rv"><div class="qa-top"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></i><span>01</span></div><h3>Is the whole flat ours?</h3><p>Yes. The entire private SOHO is yours: bedroom, living room, kitchen, bathroom and balcony.</p></article>
+      <article class="qa rv"><div class="qa-top"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM22 20v-2a4 4 0 0 0-3-3.9M16 4.1a4 4 0 0 1 0 7.8"/></svg></i><span>02</span></div><h3>How many guests?</h3><p>Up to 4. A queen bed in the bedroom and a sofa bed in the living room.</p></article>
+      <article class="qa rv"><div class="qa-top"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16v3a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6zM2 11h2M20 11h2M9 7c0-1 1-1 1-2M14 7c0-1 1-1 1-2"/></svg></i><span>03</span></div><h3>Can I cook?</h3><p>Yes. Induction cooktop, chimney, cookware, crockery and a fridge.</p></article>
+      <article class="qa rv"><div class="qa-top"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 20V5h7a5 5 0 0 1 0 10H6"/></svg></i><span>04</span></div><h3>Is there parking?</h3><p>Free parking on the premises. That's rare in this part of Zirakpur.</p></article>
+      <article class="qa rv"><div class="qa-top"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></i><span>05</span></div><h3>How far is the airport?</h3><p>About 10 km, roughly 20 minutes by car depending on traffic.</p></article>
+      <article class="qa rv"><div class="qa-top"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 1 1-3.9 4.9L3 20M7 16l2 2M10 13l2 2"/></svg></i><span>06</span></div><h3>How do I get in?</h3><p>Self check-in with a lockbox. The code and directions arrive before you do.</p></article>
+      <article class="qa rv"><div class="qa-top"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></i><span>07</span></div><h3>Check-in & check-out?</h3><p>Shown on Airbnb for your dates. Ask us about early check-in or late check-out.</p></article>
+      <article class="qa rv"><div class="qa-top"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6zM9 12l2 2 4-4"/></svg></i><span>08</span></div><h3>Cancellation policy?</h3><p>The terms for your dates are shown on Airbnb before you confirm.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- FINALE -->
+<section class="finale" data-tone="night">
+  <svg class="lights" id="lights" viewBox="0 0 1200 150" preserveAspectRatio="none" aria-hidden="true"></svg>
+  <div class="wrap finale-grid">
+    <div>
+      <span class="kicker rv">Goodnight from the 10th floor</span>
+      <h2 class="sp">Your nap is <em>waiting.</em></h2>
+      <p class="lead rv">Book on Airbnb, or reach us wherever you like.</p>
+      <div class="chips rv" style="margin-top:1.5rem">
+        <a class="chip airbnb" href="https://www.airbnb.co.uk/rooms/1820898712132260401" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#e8505b" d="M12 3 3 10.5V21h6v-6h6v6h6V10.5z"/></svg></i>Airbnb</a>
+        <a class="chip wa" href="#" data-dummy><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#2a9d5c" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></i>WhatsApp</a>
+        <a class="chip ig" href="#" data-dummy><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="#c13584" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#c13584" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="#c13584"/></svg></i>Instagram</a>
+      </div>
+    </div>
+    <form class="cb rv" id="callback">
+      <h3>Request a call back</h3>
+      <label class="full">Name<input name="name" required autocomplete="name" placeholder="Your name"></label>
+      <label class="full">Mobile<input name="phone" required type="tel" inputmode="tel" pattern="[0-9+\s]{10,15}" autocomplete="tel" placeholder="10-digit mobile"></label>
+      <label>Check-in<input name="in" type="date"></label>
+      <label>Check-out<input name="out" type="date"></label>
+      <button class="btn full" type="submit">Call me back <span class="arr">→</span></button>
+      <p class="thanks" role="status" id="thanks">Thanks! This is a demo, so nothing was sent or saved.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" data-tone="night">
+  <div class="wrap">
+    <a class="brand" href="#top">The Nap <em>Niwas</em></a>
+    <span>SOHO 1034, 10th Floor, Block D&amp;E, CCC Zirakpur</span>
+    <span>Demo site · Powered by Gen Clover</span>
+  </div>
+</footer>
+
+<div class="dock"><button class="ask" id="ask" type="button" aria-expanded="false" aria-controls="bot"><span class="av" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3a9 9 0 1 0 6 15.6A7.5 7.5 0 1 1 15 3z"/></svg></span><span class="lbl">Ask Niwas</span></button><a class="fab" href="#" data-dummy aria-label="Chat on WhatsApp (demo link)"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></i><span>Chat with Gulshan</span></a></div>
+<div class="cursor" id="cursor" aria-hidden="true">View</div>
+
+<!-- CHAT ASSISTANT (scripted, no AI; nothing is sent or stored) -->
+<div class="nudge" id="nudge" hidden>Wondering about parking, the kitchen or dates? Ask me 👋</div>
+<div class="bot" id="bot" role="dialog" aria-label="Nap Niwas assistant" hidden>
+  <div class="bot-h">
+    <span class="av" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3a9 9 0 1 0 6 15.6A7.5 7.5 0 1 1 15 3z"/></svg></span>
+    <div><b>Niwas assistant</b><small>Instant answers · booking requests</small></div>
+    <button class="bot-x" type="button" id="bot-x" aria-label="Close chat">×</button>
+  </div>
+  <div class="bot-log" id="bot-log" aria-live="polite"></div>
+  <div class="bot-quick" id="bot-quick"></div>
+  <form class="bot-in" id="bot-form" autocomplete="off"><input id="bot-input" aria-label="Type your message" placeholder="Ask about parking, kitchen, dates…"><button type="submit" aria-label="Send">↑</button></form>
+  <p class="bot-note">Demo assistant · nothing you type is sent or saved</p>
+</div>
+
+<dialog id="lb" aria-label="Photo viewer">
+  <div class="lb">
+    <img alt="">
+    <button class="x" type="button" aria-label="Close">×</button>
+    <button class="prev" type="button" aria-label="Previous photo">‹</button>
+    <button class="next" type="button" aria-label="Next photo">›</button>
+    <p class="cap"></p>
+  </div>
+</dialog>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const AIRBNB='https://www.airbnb.co.uk/rooms/1820898712132260401';
+const HOME=[30.6389313,76.8189392];
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ---------- live Zirakpur time
+const fmt=new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',hour:'numeric',minute:'2-digit',hour12:true});
+const istHour=()=>+new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',hour:'numeric',hour12:false}).format(new Date())%24;
+const mood=h=>h<5?'the city is asleep':h<9?'soft morning light':h<12?'good hours for deep work':h<16?'bright afternoon':h<19?'golden hour on the balcony':h<22?'city lights are on':'perfect nap weather';
+const tick=()=>{$('#hero-time').textContent=`${fmt.format(new Date()).toUpperCase()} in Zirakpur · ${mood(istHour())}`};
+tick();setInterval(tick,30000);
+
+// ---------- split headings into words for the mask reveal
+function split(el){[...el.childNodes].forEach(n=>{
+  if(n.nodeType===3){const f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(t=>{if(!t)return;if(/^\s+$/.test(t)){f.append(t);return}const w=document.createElement('span'),i=document.createElement('span');w.className='w';i.textContent=t;w.append(i);f.append(w)});n.replaceWith(f)}
+  else if(n.nodeType===1)split(n)})}
+$$('.sp').forEach(h=>{split(h);h.querySelectorAll('.w>span').forEach((s,i)=>s.style.transitionDelay=i*70+'ms')});
+
+// ---------- reveal on scroll (.rv fade, .ri wipe, .sp words, staggered siblings)
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target)}),{rootMargin:'0px 0px -10% 0px'});
+$$('.rv,.ri,.sp').forEach(el=>{const sib=[...el.parentElement.children].filter(c=>c.matches('.rv,.ri'));const k=sib.indexOf(el);if(k>0)el.style.transitionDelay=Math.min(k,6)*80+'ms';io.observe(el)});
+
+// ---------- header state + scroll progress
+const hdr=$('#hdr'),prog=$('#prog');
+const onScroll=()=>{const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;hdr.classList.toggle('solid',y>30);document.body.classList.toggle('past-hero',y>innerHeight*.5);prog.style.transform=`scaleX(${max>0?y/max:0})`};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// ---------- day/night follows whatever is mid-screen
+const meta=document.querySelector('meta[name=theme-color]');
+const toneIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const n=e.target.dataset.tone!=='day';document.body.classList.toggle('night',n);meta.content=n?'#15100c':'#f4ede1'}),{rootMargin:'-50% 0px -50% 0px'});
+$$('[data-tone]').forEach(el=>toneIO.observe(el));
+
+// ---------- photos (single list shared by lightbox, hero and gallery)
+const photos=[["img/bedroom.jpg","Bedroom"],["img/bedroom-side.jpg","Bedroom, blackout curtains"],["img/living.jpg","Living room"],["img/living-side.jpg","Lounge corner"],["img/workdesk.jpg","Workspace & smart TV"],["img/kitchen.jpg","Kitchen"],["img/kitchen-drawer.jpg","Cookware, glasses & kulhad cups"],["img/balcony-sunset-glow.jpg","Balcony at sunset"],["img/balcony-dusk-glow.jpg","Dusk over CCC"],["img/balcony-door-glow.jpg","Balcony door, early evening"],["img/balcony-night-glow.jpg","Balcony seating at night"],["img/balcony-dreamcatcher-glow.jpg","City lights from the doorway"],["img/story-night-bed.jpg","Bedroom at night"],["img/story-tv-night.jpg","Bedroom TV & desk at night"],["img/bedside.jpg","Bedside lamp corner"]];
+
+// ---------- hero slideshow with story bars
+(()=>{const slides=[[0,'Bedroom','Backlit headboard, queen bed'],[2,'Living room','Sofa bed & fairy lights'],[7,'Balcony','Sunset from the 10th floor'],[4,'Workspace','Desk, chair & smart TV'],[10,'Balcony at night','Dinner above the city']];
+const show=$('#show'),bars=$('#bars');let cur=-1;
+slides.forEach(([p,t],k)=>{const im=new Image();im.src=photos[p][0];im.alt='';if(k)im.loading='lazy';show.prepend(im);const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Show '+t);b.innerHTML='<i></i>';b.onclick=()=>go(k);bars.append(b)});
+const imgs=[...show.querySelectorAll('img')].reverse(),bs=[...bars.children];
+function go(k){cur=(k+slides.length)%slides.length;imgs.forEach((im,j)=>im.classList.toggle('on',j===cur));bs.forEach((b,j)=>{b.className=j<cur?'done':j===cur?'on':'';const i=b.firstChild;i.style.animation='none';i.offsetWidth;i.style.animation=''});
+  $('#show-cap').innerHTML=`<span class="t"><b>${slides[cur][1]}</b><small>${slides[cur][2]}</small></span>`;$('#show-n').textContent=`0${cur+1} / 0${slides.length}`}
+bars.addEventListener('animationend',()=>go(cur+1));
+go(0);if(calm)bs.forEach(b=>b.firstChild.style.animation='none');})();
+
+// ---------- day story: active step drives photo, clock and dots
+const frames=$$('#frame img'),steps=$$('.step'),hh=$('.clock .h'),mm=$('.clock .m'),dots=$('#dots');
+steps.forEach(()=>dots.append(document.createElement('i')));
+function setStep(i){
+  steps.forEach((s,j)=>s.classList.toggle('on',j===i));
+  frames.forEach((f,j)=>f.classList.toggle('on',j===i));
+  [...dots.children].forEach((d,j)=>d.classList.toggle('on',j===i));
+  const [h,m]=steps[i].dataset.time.split(':').map(Number);
+  // no %12: hands keep turning forward through the day instead of snapping back at noon
+  hh.style.transform=`rotate(${h*30+m*.5}deg)`;mm.style.transform=`rotate(${m*6+(h-8)*360}deg)`;
+  $('#dial-label').textContent=steps[i].querySelector('time').textContent.split('·')[1].trim();
+  $('#dial-time').textContent=`${(h%12)||12}:${String(m).padStart(2,'0')} ${h<12?'AM':'PM'}`;
+}
+// on phones the photo is pinned over the top half, so read the step sitting just below it
+const narrow=matchMedia('(max-width:900px)').matches;
+const stepIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setStep(steps.indexOf(e.target))}),{rootMargin:narrow?'-66% 0px -30% 0px':'-45% 0px -45% 0px'});
+steps.forEach(s=>stepIO.observe(s));setStep(0);
+
+
+// ---------- count-up stats
+const cIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting||calm)return;cIO.unobserve(e.target);const el=e.target,n=+el.dataset.count,t0=performance.now();const f=t=>{const p=Math.min((t-t0)/1300,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.6});
+$$('[data-count]').forEach(el=>cIO.observe(el));
+
+// ---------- reviews: loop the track seamlessly
+const track=$('#revs');[...track.children].forEach(c=>{const d=c.cloneNode(true);d.setAttribute('aria-hidden','true');track.append(d)});
+
+// ---------- radar map: landmarks plotted by real bearing and distance from the flat
+const PLACES=[
+  ['Chandigarh Airport',30.6735,76.7885,'~10 km · 20 min','end'],
+  ['Railway Station',30.7023,76.8216,'~10 km · 20 min','start'],
+  ['Panchkula',30.6942,76.8606,'~10 km · 20 min','start',12], // label nudged down to clear Railway Station
+  ['Elante Mall',30.7057,76.8014,'~11 km · 25 min','end'],
+  ['Sukhna Lake',30.7421,76.8188,'~16 km · 35 min','start'],
+  ['Sector 17',30.7411,76.7790,'~16 km · 35 min','end'],
+];
+const PX=12; // px per km in the radar's viewBox
+const pos=([,la,lo])=>[(lo-HOME[1])*Math.cos(HOME[0]*Math.PI/180)*111.32*PX,-(la-HOME[0])*110.57*PX];
+(()=>{
+  const radar=$('#radar'),SW=6;
+  // tighter frame on phones keeps label text readable (the 15 km ring label falls outside, that's fine)
+  let s=`<svg viewBox="${innerWidth<600?'-170 -200 340 250':'-230 -200 460 250'}" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><defs><linearGradient id="sw" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#e3aa5e" stop-opacity="0"/><stop offset="1" stop-color="#e3aa5e" stop-opacity=".28"/></linearGradient></defs>`;
+  [5,10,15].forEach(k=>s+=`<circle class="ring" r="${k*PX}"/><text class="rl" x="${k*PX+4}" y="-4">${k} KM</text>`);
+  s+=`<text class="rl" x="-222" y="-186">N ↑</text>`;
+  // sweep: 40° wedge trailing the leading edge, rotating clockwise from north
+  const a=-40*Math.PI/180,R=195;
+  s+=`<g><path d="M0 0L${(R*Math.sin(a)).toFixed(1)} ${(-R*Math.cos(a)).toFixed(1)}A${R} ${R} 0 0 1 0 ${-R}Z" fill="url(#sw)"/><line x1="0" y1="0" x2="0" y2="${-R}" stroke="#e3aa5e" stroke-opacity=".6"/>${calm?'':`<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="${SW}s" repeatCount="indefinite"/>`}</g>`;
+  PLACES.forEach((p,k)=>{const [x,y]=pos(p);s+=`<line class="ln" data-k="${k}" x1="0" y1="0" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" pathLength="1"/>`});
+  PLACES.forEach((p,k)=>{const [x,y]=pos(p),brg=(Math.atan2(x,-y)*180/Math.PI+360)%360,end=p[4]==='end';
+    s+=`<g class="pt" data-k="${k}"><circle class="png" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4" style="animation-delay:${(brg/360*SW).toFixed(2)}s"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4"/><text x="${(x+(end?-9:9)).toFixed(1)}" y="${(y+4+(p[5]||0)).toFixed(1)}" text-anchor="${end?'end':'start'}">${p[0]}</text></g>`});
+  s+=`<circle class="halo" r="6"/><circle class="halo b" r="6"/><circle class="home" r="6"/><text x="0" y="24" text-anchor="middle" style="fill:#efe4d2;font:500 11px Geist">The Nap Niwas</text></svg>`;
+  radar.innerHTML=s;
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){radar.classList.add('in');o.disconnect()}}),{threshold:.4}).observe(radar);
+  // distance list, linked to radar points
+  const list=$('#dist');
+  PLACES.forEach((p,k)=>{const li=document.createElement('li');li.innerHTML=`<a data-k="${k}" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=${HOME}&destination=${p[1]},${p[2]}"><span>${p[0]}</span><b>${p[3]}</b></a>`;list.append(li)});
+  const hot=(k,on)=>$$(`[data-k="${k}"]`).forEach(el=>el.classList.toggle('hot',on));
+  $$('#dist a[data-k], #radar .pt').forEach(el=>{const k=el.dataset.k;el.addEventListener('mouseenter',()=>hot(k,true));el.addEventListener('mouseleave',()=>hot(k,false))});
+  // live Google map on demand
+  const tg=$('#maptoggle');let svg;
+  tg.onclick=()=>{const live=tg.getAttribute('aria-pressed')!=='true';tg.setAttribute('aria-pressed',live);tg.textContent=live?'Radar view':'Live map';
+    if(live){svg=radar.firstChild;radar.innerHTML=`<iframe title="Google map of The Nap Niwas" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=${HOME}&z=15&output=embed"></iframe>`}else{radar.replaceChildren(svg)}};
+})();
+
+// ---------- fairy lights
+// two drooping strands; bulbs sit on the same quadratic curve the wire follows
+(()=>{const y=u=>18*(1-u)**2+2*170*u*(1-u)+18*u*u;
+let s='<path d="M0 18 Q300 170 600 18 Q900 170 1200 18" stroke="#6b5440" stroke-width="1.2" fill="none" vector-effect="non-scaling-stroke"/>';
+for(let i=1;i<40;i++){if(i===20)continue;const t=i/40,u=t<.5?t*2:t*2-1;s+=`<circle cx="${t*1200}" cy="${(y(u)+5).toFixed(1)}" r="3" style="animation-delay:${-(i*.37%2.6).toFixed(2)}s"/>`}
+$('#lights').innerHTML=s})();
+
+// ---------- lightbox
+const lb=$('#lb'),lbImg=lb.querySelector('img'),cap=lb.querySelector('.cap');let cur=0;
+const show=i=>{cur=(i+photos.length)%photos.length;[lbImg.src,lbImg.alt]=photos[cur];cap.textContent=`${photos[cur][1]} · ${cur+1} / ${photos.length}`};
+document.addEventListener('click',e=>{const el=e.target.closest('[data-i]');if(!el||e.target.closest('.bars'))return;show(+el.dataset.i);lb.showModal()});
+lb.querySelector('.x').onclick=()=>lb.close();
+lb.querySelector('.prev').onclick=()=>show(cur-1);
+lb.querySelector('.next').onclick=()=>show(cur+1);
+lb.addEventListener('click',e=>{if(e.target.classList.contains('lb'))lb.close()});
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+
+// ---------- cursor bubble over photos (mouse only)
+if(matchMedia('(pointer:fine)').matches&&!calm){
+  const c=$('#cursor');let x=0,y=0,cx=0,cy=0,s=0,ts=0;
+  addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;const t=e.target.closest('figure[data-i],.show img,#vid');ts=t?1:0;c.textContent=t&&t.id==='vid'?'Play':'View'},{passive:true});
+  (function loop(){cx+=(x-cx)*.18;cy+=(y-cy)*.18;s+=(ts-s)*.15;c.style.transform=`translate(${cx}px,${cy}px) scale(${s.toFixed(3)})`;requestAnimationFrame(loop)})();
+}
+
+// ---------- FAQ button opens the assistant
+$('#faq-ask').onclick=()=>$('#ask').click();
+
+// ---------- walkthrough video
+const vid=$('#vid'),v=vid.querySelector('video');
+vid.querySelector('.play').onclick=()=>{v.controls=true;v.play();vid.classList.add('playing')};
+
+// ---------- dates: no past dates, check-out after check-in
+const today=new Date().toISOString().slice(0,10);
+$$('form').forEach(f=>{const i=f.elements.in,o=f.elements.out;if(!i)return;i.min=o.min=today;i.addEventListener('change',()=>{o.min=i.value||today;if(o.value&&o.value<=i.value)o.value=''})});
+
+// ---------- booking: hand the dates over to Airbnb
+$('#book').addEventListener('submit',e=>{
+  e.preventDefault();const f=e.target.elements;
+  if(f.out.value<=f.in.value){$('#book-msg').textContent='Check-out must be after check-in.';return}
+  window.open(AIRBNB+'?'+new URLSearchParams({check_in:f.in.value,check_out:f.out.value,adults:f.guests.value}),'_blank','noopener');
+});
+$('#callback').addEventListener('submit',e=>{e.preventDefault();$('#thanks').style.display='block';e.target.reset()});
+
+// shortcut: WhatsApp/Instagram are placeholders until the client shares real handles
+$$('[data-dummy]').forEach(a=>{a.title='Demo link';a.addEventListener('click',e=>e.preventDefault())});
+
+// =====================================================================
+// Niwas assistant: rule-based chat (no AI). Answers FAQs from known
+// listing facts and walks guests through a booking / call-back request.
+// shortcut: demo only, the request is never emailed or stored; wire send() to a form/email API to go live
+// =====================================================================
+(()=>{
+const bot=$('#bot'),log=$('#bot-log'),quick=$('#bot-quick'),form=$('#bot-form'),input=$('#bot-input'),ask=$('#ask'),nudge=$('#nudge');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDate=v=>new Date(v+'T00:00').toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
+const nights=(a,b)=>Math.round((new Date(b)-new Date(a))/864e5);
+const todayISO=new Date().toISOString().slice(0,10);
+let flow=null,step=0,data={},started=false,busy=Promise.resolve();
+
+// ---- rendering
+const scroll=()=>log.scrollTo({top:log.scrollHeight,behavior:calm?'auto':'smooth'});
+function bubble(cls,html){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=html;log.append(d);scroll();return d}
+function me(text){const d=bubble('u','');d.textContent=text}
+// queue bot replies so they arrive one after another with a short "typing" beat
+function say(html,cls='b'){busy=busy.then(()=>new Promise(r=>{const t=bubble('b typing','<i></i><i></i><i></i>');setTimeout(()=>{t.remove();bubble(cls,html);r()},calm?0:Math.min(1100,380+html.length*6))}));return busy}
+function chips(list){busy.then(()=>{quick.replaceChildren(...list.map(([label,fn,pri],k)=>{const b=document.createElement('button');b.type='button';b.className='q'+(pri?' pri':'');b.textContent=label;b.style.animationDelay=k*50+'ms';b.onclick=()=>{me(label);quick.replaceChildren();fn()};return b}));scroll()})}
+function setInput(type='text',ph='Ask about parking, kitchen, dates…'){input.type=type;input.placeholder=ph;input.value='';input.min=type==='date'?(flow&&data.in&&step>0&&flow[step]?.key==='out'?data.in:todayISO):'';}
+
+// ---- what we know (only facts from the listing, client photos and site)
+const AIRBNB_URL=AIRBNB;
+const MENU=()=>[['Book a stay',()=>start('booking'),1],['Prices',price],['Check-in time',checkin],['Parking',parking],['Kitchen',kitchen],['Talk to the host',contact]];
+const more=()=>chips([['Book a stay',()=>start('booking'),1],['Ask something else',()=>{say('Sure, type your question below.');setInput()}],['Talk to the host',contact]]);
+const A=(html,next=more)=>{say(html);next()};
+function greet(){say('Namaste! 🙏 I\'m the Nap Niwas assistant.');say('I can answer questions about the flat, or take a booking request and pass it to Gulshan, your host. What would you like to know?');chips(MENU())}
+const price=()=>A('Rates change with the dates and season, so I can\'t quote a fixed price here. You can see the exact total on <a href="'+AIRBNB_URL+'" target="_blank" rel="noopener">Airbnb</a>, or I can take your dates and Gulshan will send you a quote.',()=>chips([['Get a quote',()=>start('booking'),1],['Open Airbnb',()=>{window.open(AIRBNB_URL,'_blank','noopener');more()}],['Something else',()=>{say('Sure, ask away.');chips(MENU())}]]));
+const checkin=()=>A('It\'s self check-in with a lockbox, so you can arrive on your own schedule. The exact check-in and check-out times are shown on Airbnb for your dates. Need an early check-in or late check-out? Add it to your request and Gulshan will confirm.');
+const parking=()=>A('Yes, there\'s <b>free parking on the premises</b>. That\'s rare in this part of Zirakpur. 🚗');
+const kitchen=()=>A('Yes, the flat has its own private kitchen with an <b>induction cooktop</b>, a chimney, cookware, glasses, kulhad cups and a fridge. Cafés and restaurants are also right downstairs in CCC.');
+const guests=()=>A('The flat sleeps up to <b>4 guests</b>: a queen bed in the bedroom and a sofa bed in the living room. It\'s the entire flat, so you won\'t share it with anyone.');
+const location=()=>A('You\'ll be on the 10th floor, Block D&amp;E, CCC Zirakpur. Rough drive times: Chandigarh Airport ~20 min, the railway station ~20 min, Elante Mall ~25 min, Sukhna Lake ~35 min. <a href="https://www.google.com/maps/dir/?api=1&destination='+HOME+'" target="_blank" rel="noopener">Get directions ↗</a>');
+const work=()=>A('Good for work trips: a <b>dedicated workspace</b> with a full desk and office chair, plus complimentary Wi-Fi. The desk is in the bedroom, and the living room is right there when you want to switch off.');
+const balcony=()=>A('The private balcony is the best bit. 🌇 It\'s 10 floors up with two wicker chairs and a little table, golden sunsets, and city lights at night.');
+const selfci=()=>A('Check-in is self-service with a <b>lockbox</b>. You\'ll get the code and directions before you arrive, then go up to unit 1034 on the 10th floor.');
+const cancel=()=>A('The cancellation terms depend on your dates and are shown on Airbnb before you confirm, so there are no surprises.');
+const comfort=()=>A('Both the bedroom and the living room have <b>AC</b>, and there\'s a <b>smart TV</b> with streaming apps in the bedroom. The bedroom also has blackout curtains for a proper lie-in.');
+const safety=()=>A('To be upfront: the listing doesn\'t include a smoke alarm or a carbon monoxide alarm. If that matters for your stay, Gulshan can tell you more.');
+const rules=()=>A('I don\'t want to guess on house rules like that. Let me pass your question to Gulshan, who usually replies within an hour.',()=>chips([['Ask Gulshan',()=>start('callback'),1],['Something else',()=>{say('Sure, ask away.');chips(MENU())}]]));
+const contact=()=>A('Gulshan usually replies within an hour. You can message on <a href="'+AIRBNB_URL+'" target="_blank" rel="noopener">Airbnb</a>, or leave your number here for a call back.',()=>chips([['Request a call back',()=>start('callback'),1],['Book a stay',()=>start('booking')]]));
+const thanks=()=>A('My pleasure! 😊 Anything else?',()=>chips(MENU()));
+const fallback=()=>A('Hmm, I\'m not sure about that one. I can pass your question to Gulshan, or you can pick a topic below.',()=>chips([['Ask Gulshan',()=>start('callback'),1],['Book a stay',()=>start('booking')],['Parking',parking],['Kitchen',kitchen]]));
+
+const INTENTS=[
+  [/\b(book|reserve|reservation|availability|available|request)\b/i,()=>start('booking')],
+  [/price|rate|cost|tariff|charge|how much|rent|per night|cheap|discount/i,price],
+  [/smoke alarm|carbon|fire|safety|alarm/i,safety],
+  [/\bpets?\b|\bdog|\bcat\b|smok|part(y|ies)|alcohol|drink|unmarried|couple|\bid\b|visitor/i,rules],
+  [/check.?in|check.?out|what time|arriv|early|late|timing/i,checkin],
+  [/park|\bcar\b|vehicle|bike/i,parking],
+  [/kitchen|cook|stove|induction|fridge|utensil|food|meal|chai|tea/i,kitchen],
+  [/guest|people|persons?|sleeps?|beds?|capacity|family|kids|friends/i,guests],
+  [/airport|station|distance|how far|near|location|where|address|map|direction|elante|sukhna|panchkula/i,location],
+  [/wi-?fi|internet|work|desk|laptop|office/i,work],
+  [/balcony|view|sunset|terrace/i,balcony],
+  [/lock|key|self|enter|access|code/i,selfci],
+  [/cancel|refund/i,cancel],
+  [/\bac\b|air.?con|cool|\btv\b|television|netflix|stream|curtain/i,comfort],
+  [/host|gulshan|owner|call|phone|whats ?app|contact|talk|human|person/i,contact],
+  [/thank|thx|great|awesome|perfect/i,thanks],
+  [/^(hi|hello|hey|hii+|namaste|good (morning|evening|afternoon))\b/i,()=>{say('Hello! 👋 How can I help?');chips(MENU())}],
+];
+
+// ---- guided flows (lead capture)
+const phoneOK=v=>/^(\+?91[\s-]?)?[6-9]\d{9}$/.test(v.replace(/[\s-]/g,''));
+const FLOWS={
+  booking:[
+    {key:'in',q:'Lovely! 🗓️ When would you like to check in?',type:'date',ph:'Pick your check-in date',check:v=>v>=todayISO||'That date has already passed. Please pick an upcoming one.'},
+    {key:'out',q:'And when will you check out?',type:'date',ph:'Pick your check-out date',check:v=>v>data.in||'Check-out needs to be after check-in.',after:v=>{const n=nights(data.in,v);say(`${n} night${n>1?'s':''}, nice. 🌙`)}},
+    {key:'guests',q:'How many guests? The flat sleeps up to 4.',type:'text',ph:'Number of guests',opts:['1','2','3','4'],check:v=>{const n=parseInt(v,10);return n>=1&&n<=4||'The flat sleeps 1 to 4 guests. How many will there be?'},norm:v=>String(parseInt(v,10))},
+    {key:'purpose',q:'What brings you to Zirakpur?',type:'text',ph:'Holiday, work…',opts:['Holiday','Work trip','Family visit','Passing through']},
+    {key:'name',q:'Great. What name should the request be under?',type:'text',ph:'Your full name',check:v=>v.trim().length>=2||'Please share your name.'},
+    {key:'phone',q:'And a mobile number Gulshan can reach you on?',type:'tel',ph:'10-digit mobile',check:v=>phoneOK(v)||'That doesn\'t look like a valid Indian mobile number. Please try 10 digits, e.g. 98xxxxxx10.'},
+    {key:'email',q:'Email for the confirmation? (optional)',type:'email',ph:'you@example.com',optional:true,check:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)||'That email doesn\'t look right. Please check it, or skip.'},
+    {key:'note',q:'Anything Gulshan should know? Early check-in, extra bedding, special occasion… (optional)',type:'text',ph:'Special requests',optional:true},
+  ],
+  callback:[
+    {key:'name',q:'Happy to connect you with Gulshan. What\'s your name?',type:'text',ph:'Your full name',check:v=>v.trim().length>=2||'Please share your name.'},
+    {key:'phone',q:'Which mobile number should Gulshan call?',type:'tel',ph:'10-digit mobile',check:v=>phoneOK(v)||'That doesn\'t look like a valid Indian mobile number. Please try 10 digits.'},
+    {key:'note',q:'What would you like to ask? (optional)',type:'text',ph:'Your question',optional:true},
+  ],
+};
+const LABEL={in:'Check-in',out:'Check-out',guests:'Guests',purpose:'Purpose',name:'Name',phone:'Mobile',email:'Email',note:'Note'};
+function start(kind){flow=FLOWS[kind];flow.kind=kind;step=0;data={};askStep()}
+function stepChips(s){
+  const c=(s.opts||[]).map(o=>[o,()=>answer(o,true)]);
+  if(s.optional)c.push(['Skip',()=>{data[s.key]='';next()}]);
+  c.push(['Cancel',()=>{flow=null;setInput();say('No problem, request cancelled. Anything else I can help with?');chips(MENU())}]);
+  chips(c);
+}
+function askStep(){const s=flow[step];say(s.q);setInput(s.type,s.ph);stepChips(s)}
+function answer(v,fromChip){
+  const s=flow[step];v=String(v).trim();
+  if(!fromChip)me(s.type==='date'?fmtDate(v):v);
+  if(!v){say('Please enter something, or tap Skip.');return}
+  const ok=s.check?s.check(v):true;
+  if(ok!==true){say(ok);stepChips(s);return}
+  data[s.key]=s.norm?s.norm(v):v;if(s.after)s.after(v);next();
+}
+function next(){quick.replaceChildren();step++;if(step<flow.length)askStep();else review()}
+function rows(){return flow.filter(s=>data[s.key]).map(s=>`<dt>${LABEL[s.key]}</dt><dd>${esc(s.type==='date'?fmtDate(data[s.key]):data[s.key])}</dd>`).join('')}
+function review(){
+  setInput('text','Type “send” or use the buttons');
+  say(`Here's your ${flow.kind==='booking'?'booking request':'call-back request'}:<dl class="sum">${rows()}</dl>`);
+  chips([['Send to Gulshan',send,1],['Start over',()=>start(flow.kind)],['Cancel',()=>{flow=null;setInput();say('Cancelled. Nothing was saved.');chips(MENU())}]]);
+}
+function emailText(){
+  const b=flow.kind==='booking',n=b?nights(data.in,data.out):0;
+  const subj=b?`New booking request: ${fmtDate(data.in)} → ${fmtDate(data.out)} · ${data.guests} guest${data.guests>1?'s':''}`:`Call-back request from ${data.name}`;
+  const body=flow.filter(s=>data[s.key]).map(s=>`${LABEL[s.key].padEnd(10)}: ${s.type==='date'?fmtDate(data[s.key]):data[s.key]}`).join('\n');
+  return `To: host@thenapniwas (demo)\nSubject: ${subj}\n\n${body}${b?`\n${'Nights'.padEnd(10)}: ${n}`:''}\n\nSent from the Niwas assistant on the website.`;
+}
+function send(){
+  say('Sending your request to Gulshan…');
+  say('✅ <b>Request captured.</b><br><br><b>This is just a demo.</b> No email has been sent and no information has been saved yet. On the live site, this request would go straight to Gulshan\'s inbox.','b demo');
+  say('This is the email Gulshan would receive:<div class="mail">'+esc(emailText())+'</div>');
+  const b=flow.kind==='booking',url=b?AIRBNB_URL+'?'+new URLSearchParams({check_in:data.in,check_out:data.out,adults:data.guests}):AIRBNB_URL;
+  flow=null;setInput();
+  chips([[b?'See these dates on Airbnb':'Open Airbnb',()=>{window.open(url,'_blank','noopener');more()},1],['Ask another question',()=>{say('Sure, what else would you like to know?');chips(MENU())}]]);
+}
+
+// ---- input handling
+form.addEventListener('submit',e=>{
+  e.preventDefault();const v=input.value.trim();if(!v)return;
+  if(flow&&step<flow.length){answer(v);input.value='';return}
+  if(flow&&/^send$/i.test(v)){me(v);quick.replaceChildren();send();return}
+  me(v);input.value='';quick.replaceChildren();
+  const hit=INTENTS.find(([re])=>re.test(v));(hit?hit[1]:fallback)();
+});
+
+// ---- open / close
+function open(){bot.hidden=false;nudge.hidden=true;ask.setAttribute('aria-expanded','true');if(!started){started=true;greet()}setTimeout(()=>input.focus(),50)}
+function close(){bot.hidden=true;ask.setAttribute('aria-expanded','false');ask.focus()}
+ask.onclick=()=>bot.hidden?open():close();
+$('#bot-x').onclick=close;
+nudge.onclick=open;
+bot.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+// gentle one-time nudge after the visitor has looked around a bit
+setTimeout(()=>{if(bot.hidden&&!started)nudge.hidden=false},20000);
+setTimeout(()=>{nudge.hidden=true},34000);
+})();
+</script>
+</body>
+</html>
